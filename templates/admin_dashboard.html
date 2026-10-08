@@ -274,6 +274,128 @@ label {
     .campos { grid-template-columns: 1fr; }
 }
 </style>
+<style>
+/* DASHBOARD RESPONSIVE - NEXUS GAMER */
+@media (max-width: 700px) {
+
+    .sidebar {
+        padding: 14px 12px;
+        height: auto;
+    }
+
+    .logo {
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+    }
+
+    .menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .menu a {
+        flex: 0 0 auto;
+        padding: 11px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .salir {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    .contenido {
+        padding: 16px 12px;
+    }
+
+    .encabezado {
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .encabezado h1 {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .subtitulo {
+        font-size: 12px;
+    }
+
+    .usuario {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .tarjeta {
+        padding: 15px 12px;
+        min-height: 125px;
+    }
+
+    .icono {
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .tarjeta p {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .tarjeta h2 {
+        font-size: 21px;
+    }
+
+    .seccion {
+        padding: 15px 12px;
+        margin-top: 16px;
+    }
+
+    .seccion h3 {
+        font-size: 16px;
+    }
+
+    .tabla-wrap {
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-box {
+        padding: 16px;
+        max-height: 90dvh;
+    }
+
+    .campos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 360px) {
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 <body>
 

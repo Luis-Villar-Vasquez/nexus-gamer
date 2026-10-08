@@ -5301,3 +5301,30 @@ body.carrito-abierto {
 .login-admin-panel .btn-admin-ingresar:hover {
     filter: brightness(1.12);
 }
+
+/* Mostrar acceso a Mi cuenta en celulares */
+@media (max-width: 768px) {
+
+    .header-actions .user-btn,
+    .header-actions .account-btn,
+    .header-actions .btn-user,
+    .header-actions .btn-cuenta {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+
+/* Mostrar el acceso a Mi cuenta en celulares */
+@media (max-width: 768px) {
+    .navbar .acciones #btn-usuario {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex-shrink: 0;
+    }
+}
