@@ -1,28 +1,8 @@
--- ============================================================
--- NEXUS GAMER
--- Base de datos para tienda de productos gamer y tecnológicos
--- ============================================================
-
-
--- ============================================================
--- 1. CREAR BASE DE DATOS
--- ============================================================
-
-
--- ===========================================================
--- 2. TABLA CATEGORIAS
--- ============================================================
-
 CREATE TABLE IF NOT EXISTS categorias (
     id_categoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255)
 );
-
-
--- ============================================================
--- 3. TABLA PRODUCTOS
--- ============================================================
 
 CREATE TABLE IF NOT EXISTS productos (
     id_producto INT AUTO_INCREMENT PRIMARY KEY,
@@ -43,11 +23,6 @@ CREATE TABLE IF NOT EXISTS productos (
         REFERENCES categorias(id_categoria)
 );
 
-
--- ============================================================
--- 4. TABLA CLIENTES
--- ============================================================
-
 CREATE TABLE IF NOT EXISTS clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(120) NOT NULL,
@@ -56,11 +31,6 @@ CREATE TABLE IF NOT EXISTS clientes (
     telefono VARCHAR(20),
     fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-
-
--- ============================================================
--- 5. TABLA VENTAS
--- ============================================================
 
 CREATE TABLE IF NOT EXISTS ventas (
     id_venta INT AUTO_INCREMENT PRIMARY KEY,
@@ -72,11 +42,6 @@ CREATE TABLE IF NOT EXISTS ventas (
     FOREIGN KEY (id_cliente)
         REFERENCES clientes(id_cliente)
 );
-
-
--- ============================================================
--- 6. TABLA DETALLE DE VENTAS
--- ============================================================
 
 CREATE TABLE IF NOT EXISTS detalle_ventas (
     id_detalle INT AUTO_INCREMENT PRIMARY KEY,
@@ -93,11 +58,6 @@ CREATE TABLE IF NOT EXISTS detalle_ventas (
         REFERENCES productos(id_producto)
 );
 
-
--- ============================================================
--- 7. TABLA OFERTAS
--- ============================================================
-
 CREATE TABLE IF NOT EXISTS ofertas (
     id_oferta INT AUTO_INCREMENT PRIMARY KEY,
     id_producto INT NOT NULL,
@@ -110,11 +70,6 @@ CREATE TABLE IF NOT EXISTS ofertas (
         REFERENCES productos(id_producto)
 );
 
-
--- ============================================================
--- 8. TABLA NOVEDADES
--- ============================================================
-
 CREATE TABLE IF NOT EXISTS novedades (
     id_novedad INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(150) NOT NULL,
@@ -124,11 +79,6 @@ CREATE TABLE IF NOT EXISTS novedades (
     activa BOOLEAN DEFAULT TRUE
 );
 
-
--- ============================================================
--- 9. TABLA USUARIOS
--- ============================================================
-
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(120) NOT NULL,
@@ -137,11 +87,6 @@ CREATE TABLE IF NOT EXISTS usuarios (
     rol VARCHAR(50) DEFAULT 'cliente',
     activo BOOLEAN DEFAULT TRUE
 );
-
-
--- ============================================================
--- 10. CATEGORIAS
--- ============================================================
 
 INSERT INTO categorias (nombre, descripcion) VALUES
 
@@ -185,14 +130,6 @@ INSERT INTO categorias (nombre, descripcion) VALUES
     'Accesorios y equipamiento para setup'
 );
 
-
--- ============================================================
--- 11. PRODUCTOS
--- ============================================================
-
-
--- PRODUCTO 1
-
 INSERT INTO productos
 (
     codigo,
@@ -221,9 +158,6 @@ VALUES
     TRUE,
     FALSE
 );
-
-
--- PRODUCTO 2
 
 INSERT INTO productos
 (
@@ -254,9 +188,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 3
-
 INSERT INTO productos
 (
     codigo,
@@ -285,9 +216,6 @@ VALUES
     FALSE,
     TRUE
 );
-
-
--- PRODUCTO 4
 
 INSERT INTO productos
 (
@@ -318,9 +246,6 @@ VALUES
     TRUE
 );
 
-
--- PRODUCTO 5
-
 INSERT INTO productos
 (
     codigo,
@@ -349,9 +274,6 @@ VALUES
     TRUE,
     TRUE
 );
-
-
--- PRODUCTO 6
 
 INSERT INTO productos
 (
@@ -382,9 +304,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 7
-
 INSERT INTO productos
 (
     codigo,
@@ -413,9 +332,6 @@ VALUES
     TRUE,
     FALSE
 );
-
-
--- PRODUCTO 8
 
 INSERT INTO productos
 (
@@ -446,9 +362,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 9
-
 INSERT INTO productos
 (
     codigo,
@@ -477,9 +390,6 @@ VALUES
     TRUE,
     TRUE
 );
-
-
--- PRODUCTO 10
 
 INSERT INTO productos
 (
@@ -510,9 +420,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 11
-
 INSERT INTO productos
 (
     codigo,
@@ -541,9 +448,6 @@ VALUES
     FALSE,
     TRUE
 );
-
-
--- PRODUCTO 12
 
 INSERT INTO productos
 (
@@ -574,9 +478,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 13
-
 INSERT INTO productos
 (
     codigo,
@@ -605,9 +506,6 @@ VALUES
     TRUE,
     FALSE
 );
-
-
--- PRODUCTO 14
 
 INSERT INTO productos
 (
@@ -638,9 +536,6 @@ VALUES
     TRUE
 );
 
-
--- PRODUCTO 15
-
 INSERT INTO productos
 (
     codigo,
@@ -669,9 +564,6 @@ VALUES
     FALSE,
     FALSE
 );
-
-
--- PRODUCTO 16
 
 INSERT INTO productos
 (
@@ -702,9 +594,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 17
-
 INSERT INTO productos
 (
     codigo,
@@ -733,9 +622,6 @@ VALUES
     FALSE,
     FALSE
 );
-
-
--- PRODUCTO 18
 
 INSERT INTO productos
 (
@@ -766,9 +652,6 @@ VALUES
     TRUE
 );
 
-
--- PRODUCTO 19
-
 INSERT INTO productos
 (
     codigo,
@@ -797,9 +680,6 @@ VALUES
     FALSE,
     FALSE
 );
-
-
--- PRODUCTO 20
 
 INSERT INTO productos
 (
@@ -830,9 +710,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 21
-
 INSERT INTO productos
 (
     codigo,
@@ -861,9 +738,6 @@ VALUES
     FALSE,
     FALSE
 );
-
-
--- PRODUCTO 22
 
 INSERT INTO productos
 (
@@ -894,9 +768,6 @@ VALUES
     FALSE
 );
 
-
--- PRODUCTO 23
-
 INSERT INTO productos
 (
     codigo,
@@ -925,9 +796,6 @@ VALUES
     TRUE,
     FALSE
 );
-
-
--- PRODUCTO 24
 
 INSERT INTO productos
 (
@@ -958,11 +826,6 @@ VALUES
     FALSE
 );
 
-
--- ============================================================
--- 12. CONSULTA PARA COMPROBAR PRODUCTOS
--- ============================================================
-
 SELECT
     p.codigo,
     p.nombre,
@@ -975,13 +838,6 @@ FROM productos p
 INNER JOIN categorias c
     ON p.id_categoria = c.id_categoria
 ORDER BY p.id_producto;
-
--- ============================================================
--- 13. ACTUALIZAR NOMBRES DE IMÁGENES
--- ============================================================
--- Estos nombres corresponden a los archivos guardados en:
--- static/img/
--- ============================================================
 
 UPDATE productos
 SET imagen = CASE codigo
@@ -1013,11 +869,6 @@ SET imagen = CASE codigo
 
 END
 WHERE codigo BETWEEN 'NG001' AND 'NG024';
-
-
--- ============================================================
--- 14. COMPROBAR NOMBRES DE IMÁGENES
--- ============================================================
 
 SELECT
     codigo,

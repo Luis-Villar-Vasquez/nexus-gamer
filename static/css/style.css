@@ -1,11 +1,4 @@
-/* =========================================
-   NEXUS GAMER - ESTILO PRINCIPAL
-   ========================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
-
-
-/* VARIABLES */
 
 :root {
     --fondo: #05050a;
@@ -22,9 +15,6 @@
 
     --borde: rgba(255, 255, 255, 0.08);
 }
-
-
-/* REINICIO */
 
 * {
     margin: 0;
@@ -48,11 +38,6 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =========================================
-   NAVBAR
-   ========================================= */
-
 .navbar {
     width: 100%;
     height: 82px;
@@ -75,9 +60,6 @@ body {
     border-bottom: 1px solid var(--borde);
 }
 
-
-/* LOGO */
-
 .logo {
     font-family: 'Orbitron', sans-serif;
     font-size: 23px;
@@ -94,9 +76,6 @@ body {
         0 0 8px rgba(0, 229, 255, 0.7),
         0 0 20px rgba(0, 229, 255, 0.3);
 }
-
-
-/* MENÚ */
 
 .navbar nav {
     display: flex;
@@ -145,9 +124,6 @@ body {
     width: 100%;
 }
 
-
-/* ICONOS NAVBAR */
-
 .acciones {
     display: flex;
     align-items: center;
@@ -187,11 +163,6 @@ body {
     font-weight: 700;
 }
 
-
-/* =========================================
-   HERO / PORTADA
-   ========================================= */
-
 .hero {
     min-height: 100vh;
 
@@ -204,9 +175,6 @@ body {
 
     position: relative;
 }
-
-
-/* PEQUEÑA ETIQUETA */
 
 .etiqueta {
     display: inline-block;
@@ -228,9 +196,6 @@ body {
 
     letter-spacing: 1.5px;
 }
-
-
-/* TÍTULO */
 
 .hero h1 {
     max-width: 750px;
@@ -266,9 +231,6 @@ body {
     );
 }
 
-
-/* DESCRIPCIÓN */
-
 .hero-contenido > p {
     max-width: 620px;
 
@@ -280,9 +242,6 @@ body {
 
     margin-bottom: 35px;
 }
-
-
-/* BOTONES */
 
 .hero-botones {
     display: flex;
@@ -312,9 +271,6 @@ body {
     transition: 0.3s;
 }
 
-
-/* BOTÓN PRINCIPAL */
-
 .btn-principal {
     color: white;
 
@@ -335,9 +291,6 @@ body {
         0 15px 40px rgba(139, 92, 246, 0.5);
 }
 
-
-/* BOTÓN SECUNDARIO */
-
 .btn-secundario {
     color: white;
 
@@ -355,11 +308,6 @@ body {
         0 10px 30px rgba(0, 229, 255, 0.15);
 }
 
-
-/* =========================================
-   SETUP GAMER DIBUJADO CON CSS
-   ========================================= */
-
 .hero-visual {
     height: 550px;
 
@@ -369,9 +317,6 @@ body {
 
     position: relative;
 }
-
-
-/* CÍRCULO DE LUZ */
 
 .circulo {
     position: absolute;
@@ -396,9 +341,6 @@ body {
     animation: pulso 4s ease-in-out infinite;
 }
 
-
-/* SETUP */
-
 .setup {
     position: relative;
 
@@ -409,9 +351,6 @@ body {
 
     animation: flotar 4s ease-in-out infinite;
 }
-
-
-/* MONITOR */
 
 .monitor {
     width: 390px;
@@ -449,9 +388,6 @@ body {
 
     overflow: hidden;
 }
-
-
-/* EFECTO INTERNO MONITOR */
 
 .monitor::before {
     content: "";
@@ -508,9 +444,6 @@ body {
         0 0 30px var(--morado);
 }
 
-
-/* BASE MONITOR */
-
 .base-monitor {
     position: absolute;
 
@@ -536,9 +469,6 @@ body {
         25% 75%
     );
 }
-
-
-/* TECLADO */
 
 .teclado {
     position: absolute;
@@ -572,9 +502,6 @@ body {
         0 10px 30px rgba(139, 92, 246, 0.3);
 }
 
-
-/* MOUSE */
-
 .mouse {
     position: absolute;
 
@@ -597,11 +524,6 @@ body {
     box-shadow:
         0 0 20px rgba(0, 229, 255, 0.3);
 }
-
-
-/* =========================================
-   BENEFICIOS
-   ========================================= */
 
 .beneficios {
     width: 86%;
@@ -663,11 +585,6 @@ body {
     font-size: 14px;
 }
 
-
-/* =========================================
-   CHATBOT
-   ========================================= */
-
 .chatbot-boton {
     position: fixed;
 
@@ -724,11 +641,6 @@ body {
     font-size: 22px;
 }
 
-
-/* =========================================
-   ANIMACIONES
-   ========================================= */
-
 @keyframes flotar {
 
     0%,
@@ -754,11 +666,6 @@ body {
         opacity: 1;
     }
 }
-
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
 
 @media (max-width: 1000px) {
 
@@ -840,10 +747,6 @@ body {
     }
 }
 
-/* =========================================
-   PRODUCTOS
-   ========================================= */
-
 .productos-seccion {
     width: 86%;
     margin: 30px auto 120px;
@@ -897,9 +800,6 @@ body {
     white-space: nowrap;
 }
 
-
-/* FILTROS */
-
 .filtros-productos {
     display: flex;
     flex-wrap: wrap;
@@ -936,17 +836,11 @@ body {
     box-shadow: 0 8px 25px rgba(139,92,246,0.25);
 }
 
-
-/* GRID */
-
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
-
-
-/* TARJETA */
 
 .producto-card {
     position: relative;
@@ -973,9 +867,6 @@ body {
         0 20px 50px rgba(0,0,0,0.45),
         0 0 30px rgba(139,92,246,0.08);
 }
-
-
-/* IMAGEN */
 
 .producto-imagen {
     height: 235px;
@@ -1035,9 +926,6 @@ body {
     letter-spacing: 2px;
 }
 
-
-/* ETIQUETAS */
-
 .producto-etiquetas {
     position: absolute;
     top: 14px;
@@ -1072,9 +960,6 @@ body {
     );
 }
 
-
-/* FAVORITO */
-
 .favorito {
     position: absolute;
     right: 14px;
@@ -1100,9 +985,6 @@ body {
     color: var(--rosa);
     border-color: var(--rosa);
 }
-
-
-/* INFORMACIÓN */
 
 .producto-info {
     padding: 20px;
@@ -1134,9 +1016,6 @@ body {
     margin-left: 5px;
 }
 
-
-/* STOCK */
-
 .producto-stock {
     margin-bottom: 17px;
 }
@@ -1157,9 +1036,6 @@ body {
 .stock.agotado {
     color: #ff5470;
 }
-
-
-/* PRECIOS */
 
 .producto-precios {
     display: flex;
@@ -1189,9 +1065,6 @@ body {
     text-decoration: line-through;
 }
 
-
-/* BOTÓN CARRITO */
-
 .btn-carrito {
     width: 45px;
     height: 45px;
@@ -1219,9 +1092,6 @@ body {
     box-shadow:
         0 0 25px rgba(139,92,246,0.45);
 }
-
-
-/* RESPONSIVE PRODUCTOS */
 
 @media (max-width: 1200px) {
 
@@ -1253,11 +1123,6 @@ body {
     }
 }
 
-/* =========================================================
-   IMÁGENES REALES DE PRODUCTOS
-   ========================================================= */
-
-/* Contenedor general donde aparece la fotografía */
 .producto-imagen {
     height: 235px;
     position: relative;
@@ -1279,8 +1144,6 @@ body {
     border-bottom: 1px solid var(--borde);
 }
 
-
-/* Contenedor de la fotografía */
 .producto-foto {
     width: 100%;
     height: 100%;
@@ -1294,13 +1157,10 @@ body {
     overflow: hidden;
 }
 
-
-/* Imagen del producto */
 .producto-foto img {
     width: 100%;
     height: 100%;
 
-    /* Mantiene la proporción sin deformar */
     object-fit: contain;
     object-position: center;
 
@@ -1311,8 +1171,6 @@ body {
         filter 0.4s ease;
 }
 
-
-/* Efecto cuando pasamos el mouse */
 .producto-card:hover .producto-foto img {
     transform: scale(1.08);
 
@@ -1322,11 +1180,6 @@ body {
             rgba(0, 229, 255, 0.15)
         );
 }
-
-
-/* =========================================================
-   ETIQUETAS SOBRE LA IMAGEN
-   ========================================================= */
 
 .producto-etiquetas {
     position: absolute;
@@ -1340,11 +1193,6 @@ body {
     z-index: 10;
 }
 
-
-/* =========================================================
-   BOTÓN FAVORITO SOBRE LA IMAGEN
-   ========================================================= */
-
 .favorito {
     position: absolute;
 
@@ -1353,11 +1201,6 @@ body {
 
     z-index: 10;
 }
-
-
-/* =========================================================
-   MARCA DEBAJO DEL NOMBRE
-   ========================================================= */
 
 .producto-marca-info {
     display: block;
@@ -1373,12 +1216,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
-
-/* =========================================================
-   PLACEHOLDER
-   Se utiliza solamente si un producto no tiene imagen
-   ========================================================= */
 
 .producto-placeholder {
     width: 72%;
@@ -1428,11 +1265,6 @@ body {
     letter-spacing: 2px;
 }
 
-
-/* =========================================================
-   PRODUCTO AGOTADO
-   ========================================================= */
-
 .btn-carrito:disabled {
     cursor: not-allowed;
 
@@ -1442,11 +1274,6 @@ body {
 
     transform: none;
 }
-
-
-/* =========================================================
-   MENSAJE SIN PRODUCTOS
-   ========================================================= */
 
 .sin-productos {
     grid-column: 1 / -1;
@@ -1480,11 +1307,6 @@ body {
 .sin-productos p {
     color: var(--gris);
 }
-
-
-/* =========================================================
-   RESPONSIVE DE LAS IMÁGENES
-   ========================================================= */
 
 @media (max-width: 1200px) {
 
@@ -1534,12 +1356,6 @@ body {
     }
 }
 
-/* =========================================================
-   RESPONSIVE GENERAL NEXUS GAMER
-   CORRECCIÓN MÓVIL / TABLET
-   ========================================================= */
-
-/* Evita cualquier desbordamiento horizontal */
 html,
 body {
     width: 100%;
@@ -1547,14 +1363,8 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
 @media (max-width: 1000px) {
 
-    /* NAVBAR */
     .navbar {
         height: 72px;
         padding: 0 5%;
@@ -1564,8 +1374,6 @@ body {
         display: none;
     }
 
-
-    /* HERO */
     .hero {
         width: 100%;
         min-height: auto;
@@ -1609,8 +1417,6 @@ body {
         justify-content: center;
     }
 
-
-    /* SETUP */
     .hero-visual {
         width: 100%;
         height: 430px;
@@ -1618,8 +1424,6 @@ body {
         overflow: visible;
     }
 
-
-    /* BENEFICIOS */
     .beneficios {
         width: 88%;
 
@@ -1631,8 +1435,6 @@ body {
             repeat(2, 1fr);
     }
 
-
-    /* PRODUCTOS */
     .productos-seccion {
         width: 88%;
     }
@@ -1644,16 +1446,7 @@ body {
 
 }
 
-
-/* =========================================================
-   CELULARES
-   ========================================================= */
-
 @media (max-width: 600px) {
-
-    /* -----------------------------------------
-       NAVBAR
-       ----------------------------------------- */
 
     .navbar {
         width: 100%;
@@ -1685,11 +1478,6 @@ body {
         height: 40px;
     }
 
-
-    /* -----------------------------------------
-       HERO
-       ----------------------------------------- */
-
     .hero {
         width: 100%;
 
@@ -1717,9 +1505,6 @@ body {
         text-align: center;
     }
 
-
-    /* ETIQUETA */
-
     .etiqueta {
         max-width: 100%;
 
@@ -1733,9 +1518,6 @@ body {
 
         white-space: normal;
     }
-
-
-    /* TÍTULO */
 
     .hero h1 {
         width: 100%;
@@ -1765,9 +1547,6 @@ body {
         display: block;
     }
 
-
-    /* DESCRIPCIÓN */
-
     .hero-contenido > p {
         width: 100%;
         max-width: 340px;
@@ -1782,9 +1561,6 @@ body {
 
         line-height: 1.5;
     }
-
-
-    /* BOTONES */
 
     .hero-botones {
         width: 100%;
@@ -1810,11 +1586,6 @@ body {
 
         white-space: nowrap;
     }
-
-
-    /* -----------------------------------------
-       SETUP GAMER
-       ----------------------------------------- */
 
     .hero-visual {
         width: 100%;
@@ -1863,9 +1634,6 @@ body {
             infinite;
     }
 
-
-    /* MONITOR */
-
     .monitor {
         width: 270px;
         height: 158px;
@@ -1896,9 +1664,6 @@ body {
         letter-spacing: 5px;
     }
 
-
-    /* BASE MONITOR */
-
     .base-monitor {
         width: 55px;
         height: 52px;
@@ -1906,9 +1671,6 @@ body {
         top: 175px;
         left: 133px;
     }
-
-
-    /* TECLADO */
 
     .teclado {
         width: 195px;
@@ -1918,9 +1680,6 @@ body {
         bottom: 8px;
     }
 
-
-    /* MOUSE */
-
     .mouse {
         width: 36px;
         height: 52px;
@@ -1928,11 +1687,6 @@ body {
         right: 22px;
         bottom: 14px;
     }
-
-
-    /* -----------------------------------------
-       BENEFICIOS
-       ----------------------------------------- */
 
     .beneficios {
         width: calc(100% - 36px);
@@ -1954,11 +1708,6 @@ body {
 
         padding: 16px;
     }
-
-
-    /* -----------------------------------------
-       PRODUCTOS
-       ----------------------------------------- */
 
     .productos-seccion {
         width: calc(100% - 36px);
@@ -1994,9 +1743,6 @@ body {
         font-size: 15px;
     }
 
-
-    /* Filtros desplazables horizontalmente */
-
     .filtros-productos {
         width: 100%;
 
@@ -2020,9 +1766,6 @@ body {
 
         white-space: nowrap;
     }
-
-
-    /* Una tarjeta por fila */
 
     .productos-grid {
         width: 100%;
@@ -2056,11 +1799,6 @@ body {
         object-fit: contain;
     }
 
-
-    /* -----------------------------------------
-       CHATBOT
-       ----------------------------------------- */
-
     .chatbot-boton {
         width: 54px;
         height: 54px;
@@ -2081,11 +1819,6 @@ body {
     }
 
 }
-
-
-/* =========================================================
-   CELULARES PEQUEÑOS
-   ========================================================= */
 
 @media (max-width: 380px) {
 
@@ -2124,8 +1857,6 @@ body {
 
 }
 
-
-/* Animación específica para móvil */
 @keyframes flotar-mobile {
 
     0%,
@@ -2138,11 +1869,6 @@ body {
     }
 
 }
-
-
-/* =========================================================
-   BUSCADOR NEXUS GAMER
-   ========================================================= */
 
 .buscador-panel {
     position: fixed;
@@ -2172,18 +1898,12 @@ body {
     transition: 0.3s ease;
 }
 
-
-/* BUSCADOR ABIERTO */
-
 .buscador-panel.abierto {
     opacity: 1;
     visibility: visible;
 
     transform: translateY(0);
 }
-
-
-/* CONTENEDOR */
 
 .buscador-contenido {
     width: 100%;
@@ -2218,17 +1938,11 @@ body {
         rgba(0, 229, 255, 0.08);
 }
 
-
-/* ICONO */
-
 .buscador-icono {
     margin-right: 12px;
 
     font-size: 18px;
 }
-
-
-/* INPUT */
 
 #buscador-input {
     width: 100%;
@@ -2252,9 +1966,6 @@ body {
 #buscador-input::placeholder {
     color: #686878;
 }
-
-
-/* CERRAR */
 
 #cerrar-buscador {
     width: 38px;
@@ -2280,9 +1991,6 @@ body {
     color: var(--rosa);
 }
 
-
-/* RESULTADOS */
-
 .resultado-busqueda {
     max-width: 900px;
 
@@ -2294,11 +2002,6 @@ body {
 
     font-size: 13px;
 }
-
-
-/* =========================================================
-   RESPONSIVE BUSCADOR
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -2322,10 +2025,6 @@ body {
 
 }
 
-/* =========================================================
-   CARRITO NEXUS GAMER
-   ========================================================= */
-
 .carrito-overlay {
     position: fixed;
     inset: 0;
@@ -2345,9 +2044,6 @@ body {
     opacity: 1;
     visibility: visible;
 }
-
-
-/* PANEL */
 
 .carrito-panel {
     position: fixed;
@@ -2385,9 +2081,6 @@ body {
 .carrito-panel.abierto {
     right: 0;
 }
-
-
-/* HEADER */
 
 .carrito-header {
     min-height: 95px;
@@ -2446,9 +2139,6 @@ body {
     border-color: var(--rosa);
 }
 
-
-/* PRODUCTOS */
-
 .carrito-productos {
     flex: 1;
 
@@ -2456,9 +2146,6 @@ body {
 
     overflow-y: auto;
 }
-
-
-/* CARRITO VACÍO */
 
 .carrito-vacio {
     min-height: 350px;
@@ -2514,9 +2201,6 @@ body {
     line-height: 1.5;
 }
 
-
-/* PRODUCTO INDIVIDUAL */
-
 .carrito-item {
     position: relative;
 
@@ -2565,9 +2249,6 @@ body {
     object-fit: contain;
 }
 
-
-/* INFORMACIÓN */
-
 .carrito-item-info {
     min-width: 0;
 }
@@ -2591,9 +2272,6 @@ body {
     font-weight: 700;
 }
 
-
-/* ELIMINAR */
-
 .eliminar-carrito {
     position: absolute;
 
@@ -2614,9 +2292,6 @@ body {
 .eliminar-carrito:hover {
     color: var(--rosa);
 }
-
-
-/* CANTIDAD */
 
 .carrito-cantidad {
     margin-top: 10px;
@@ -2660,9 +2335,6 @@ body {
     font-weight: 700;
 }
 
-
-/* FOOTER */
-
 .carrito-footer {
     padding: 20px 24px 24px;
 
@@ -2702,9 +2374,6 @@ body {
     font-size: 12px;
 }
 
-
-/* FINALIZAR */
-
 .btn-finalizar {
     width: 100%;
     height: 52px;
@@ -2741,9 +2410,6 @@ body {
         rgba(139, 92, 246, 0.3);
 }
 
-
-/* SEGUIR COMPRANDO */
-
 .btn-seguir-comprando {
     width: 100%;
 
@@ -2766,17 +2432,9 @@ body {
     color: var(--cyan);
 }
 
-
-/* Evitar scroll del fondo */
-
 body.carrito-abierto {
     overflow: hidden;
 }
-
-
-/* =========================================================
-   CARRITO RESPONSIVE
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -2818,10 +2476,6 @@ body.carrito-abierto {
 
 }
 
-/* =========================================================
-   FAVORITOS
-   ========================================================= */
-
 .favorito {
     transition:
         transform 0.2s ease,
@@ -2839,9 +2493,6 @@ body.carrito-abierto {
 
     color: #ff2d91;
 }
-
-
-/* PRODUCTO GUARDADO */
 
 .favorito.activo {
     color: #ff2d91;
@@ -2862,10 +2513,6 @@ body.carrito-abierto {
     transform: scale(1.08);
 }
 
-/* =========================================================
-   PANEL DE USUARIO
-   ========================================================= */
-
 .usuario-overlay {
     position: fixed;
     inset: 0;
@@ -2885,9 +2532,6 @@ body.carrito-abierto {
     opacity: 1;
     visibility: visible;
 }
-
-
-/* PANEL */
 
 .usuario-panel {
     position: fixed;
@@ -2926,11 +2570,6 @@ body.carrito-abierto {
 .usuario-panel.abierto {
     right: 0;
 }
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
 
 .usuario-header {
     min-height: 105px;
@@ -3007,11 +2646,6 @@ body.carrito-abierto {
 
     font-size: 17px;
 }
-
-
-/* =========================================================
-   MENÚ
-   ========================================================= */
 
 .usuario-menu {
     padding: 18px;
@@ -3116,11 +2750,6 @@ body.carrito-abierto {
     font-size: 10px;
 }
 
-
-/* =========================================================
-   FAVORITOS DEL USUARIO
-   ========================================================= */
-
 .usuario-favoritos-seccion {
     padding: 20px;
 
@@ -3161,9 +2790,6 @@ body.carrito-abierto {
 
     font-size: 11px;
 }
-
-
-/* FAVORITO INDIVIDUAL */
 
 .favorito-item {
     position: relative;
@@ -3258,9 +2884,6 @@ body.carrito-abierto {
     font-size: 17px;
 }
 
-
-/* SIN FAVORITOS */
-
 .sin-favoritos {
     min-height: 200px;
 
@@ -3290,11 +2913,6 @@ body.carrito-abierto {
 
     color: white;
 }
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -3340,11 +2958,6 @@ body.carrito-abierto {
 
 }
 
-
-/* =========================================================
-   SECCIÓN OFERTAS
-   ========================================================= */
-
 .ofertas-seccion {
     position: relative;
     padding: 90px 7%;
@@ -3364,9 +2977,6 @@ body.carrito-abierto {
         #07070d;
 }
 
-
-/* Línea superior decorativa */
-
 .ofertas-seccion::before {
     content: "";
     position: absolute;
@@ -3383,11 +2993,6 @@ body.carrito-abierto {
         transparent
     );
 }
-
-
-/* =========================================================
-   ENCABEZADO
-   ========================================================= */
 
 .ofertas-encabezado {
     max-width: 1500px;
@@ -3447,9 +3052,6 @@ body.carrito-abierto {
     line-height: 1.7;
 }
 
-
-/* Badge hasta 20% */
-
 .ofertas-badge {
     min-width: 125px;
     height: 125px;
@@ -3488,11 +3090,6 @@ body.carrito-abierto {
     font-size: 27px;
 }
 
-
-/* =========================================================
-   GRID DE OFERTAS
-   ========================================================= */
-
 .ofertas-grid {
     max-width: 1500px;
     margin: 0 auto;
@@ -3504,11 +3101,6 @@ body.carrito-abierto {
 
     gap: 20px;
 }
-
-
-/* =========================================================
-   TARJETA
-   ========================================================= */
 
 .oferta-card {
     position: relative;
@@ -3549,11 +3141,6 @@ body.carrito-abierto {
         rgba(0, 0, 0, 0.35);
 }
 
-
-/* =========================================================
-   DESCUENTO
-   ========================================================= */
-
 .oferta-descuento {
     position: absolute;
     top: 13px;
@@ -3581,11 +3168,6 @@ body.carrito-abierto {
         0 6px 20px
         rgba(255, 45, 145, 0.25);
 }
-
-
-/* =========================================================
-   IMAGEN
-   ========================================================= */
 
 .oferta-imagen {
     width: 100%;
@@ -3627,11 +3209,6 @@ body.carrito-abierto {
 .oferta-imagen img {
     transform: scale(1.05);
 }
-
-
-/* =========================================================
-   INFORMACIÓN
-   ========================================================= */
 
 .oferta-info {
     flex: 1;
@@ -3679,11 +3256,6 @@ body.carrito-abierto {
     letter-spacing: 1px;
 }
 
-
-/* =========================================================
-   PRECIOS
-   ========================================================= */
-
 .oferta-precios {
     margin-top: auto;
     padding-top: 17px;
@@ -3724,9 +3296,6 @@ body.carrito-abierto {
     font-size: 20px;
 }
 
-
-/* BOTÓN CARRITO */
-
 .oferta-carrito {
     flex-shrink: 0;
 
@@ -3765,11 +3334,6 @@ body.carrito-abierto {
         rgba(139, 92, 246, 0.35);
 }
 
-
-/* =========================================================
-   RESPONSIVE - TABLET
-   ========================================================= */
-
 @media (max-width: 1100px) {
 
     .ofertas-grid {
@@ -3778,11 +3342,6 @@ body.carrito-abierto {
     }
 
 }
-
-
-/* =========================================================
-   RESPONSIVE - CELULAR
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -3843,10 +3402,6 @@ body.carrito-abierto {
     }
 
 }
-/* =========================================================
-   NOVEDADES
-   ========================================================= */
-
 .novedades-seccion {
     position: relative;
     padding: 90px 7%;
@@ -3930,9 +3485,6 @@ body.carrito-abierto {
         0 0 25px rgba(0, 229, 255, 0.12);
 }
 
-
-/* GRID */
-
 .novedades-grid {
     max-width: 1500px;
     margin: auto;
@@ -3943,9 +3495,6 @@ body.carrito-abierto {
 
     gap: 20px;
 }
-
-
-/* TARJETA */
 
 .novedad-card {
     overflow: hidden;
@@ -3969,9 +3518,6 @@ body.carrito-abierto {
     box-shadow:
         0 18px 45px rgba(0,0,0,.35);
 }
-
-
-/* IMAGEN */
 
 .novedad-imagen {
     position: relative;
@@ -4001,9 +3547,6 @@ body.carrito-abierto {
     transform: scale(1.05);
 }
 
-
-/* NUEVO */
-
 .novedad-badge {
     position: absolute;
     top: 13px;
@@ -4022,9 +3565,6 @@ body.carrito-abierto {
     font-weight: 900;
 }
 
-
-/* FAVORITO */
-
 .novedad-imagen .favorito {
     position: absolute;
     top: 13px;
@@ -4032,9 +3572,6 @@ body.carrito-abierto {
 
     z-index: 3;
 }
-
-
-/* INFORMACIÓN */
 
 .novedad-info {
     padding: 20px;
@@ -4074,9 +3611,6 @@ body.carrito-abierto {
     text-transform: uppercase;
 }
 
-
-/* STOCK */
-
 .novedad-stock {
     min-height: 30px;
 
@@ -4084,9 +3618,6 @@ body.carrito-abierto {
 
     font-size: 11px;
 }
-
-
-/* FOOTER */
 
 .novedad-footer {
     padding-top: 16px;
@@ -4128,11 +3659,6 @@ body.carrito-abierto {
     flex-shrink: 0;
 }
 
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
 @media (max-width: 1100px) {
 
     .novedades-grid {
@@ -4141,11 +3667,6 @@ body.carrito-abierto {
     }
 
 }
-
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -4184,10 +3705,6 @@ body.carrito-abierto {
     }
 
 }
-
-/* =========================================================
-   NEXUS AI - CHATBOT
-   ========================================================= */
 
 .nexus-ai-panel {
     position: fixed;
@@ -4233,9 +3750,6 @@ body.carrito-abierto {
         visibility 0.25s ease;
 }
 
-
-/* PANEL ABIERTO */
-
 .nexus-ai-panel.abierto {
     opacity: 1;
     visibility: visible;
@@ -4244,11 +3758,6 @@ body.carrito-abierto {
         translateY(0)
         scale(1);
 }
-
-
-/* =========================================================
-   CABECERA
-   ========================================================= */
 
 .nexus-ai-header {
     flex-shrink: 0;
@@ -4329,9 +3838,6 @@ body.carrito-abierto {
     letter-spacing: 0.5px;
 }
 
-
-/* ESTADO EN LÍNEA */
-
 .nexus-ai-estado {
     margin-top: 5px;
 
@@ -4358,9 +3864,6 @@ body.carrito-abierto {
     box-shadow:
         0 0 9px rgba(34, 197, 94, 0.8);
 }
-
-
-/* CERRAR */
 
 .cerrar-nexus-ai {
     width: 36px;
@@ -4398,11 +3901,6 @@ body.carrito-abierto {
     border-color: rgba(255, 45, 145, 0.35);
 }
 
-
-/* =========================================================
-   ÁREA DE MENSAJES
-   ========================================================= */
-
 .nexus-ai-mensajes {
     flex: 1;
 
@@ -4415,9 +3913,6 @@ body.carrito-abierto {
 
     scroll-behavior: smooth;
 }
-
-
-/* SCROLL */
 
 .nexus-ai-mensajes::-webkit-scrollbar {
     width: 5px;
@@ -4433,11 +3928,6 @@ body.carrito-abierto {
     background: rgba(139, 92, 246, 0.35);
     border-radius: 10px;
 }
-
-
-/* =========================================================
-   MENSAJE NEXUS AI
-   ========================================================= */
 
 .mensaje-ai {
     display: flex;
@@ -4509,12 +3999,6 @@ body.carrito-abierto {
     line-height: 1.65;
 }
 
-
-/* =========================================================
-   MENSAJE DEL USUARIO
-   Lo utilizará JavaScript posteriormente
-   ========================================================= */
-
 .mensaje-usuario {
     display: flex;
     justify-content: flex-end;
@@ -4547,11 +4031,6 @@ body.carrito-abierto {
     box-shadow:
         0 7px 20px rgba(124, 58, 237, 0.15);
 }
-
-
-/* =========================================================
-   PREGUNTAS RÁPIDAS
-   ========================================================= */
 
 .nexus-ai-sugerencias {
     margin:
@@ -4601,12 +4080,6 @@ body.carrito-abierto {
 
     transform: translateY(-1px);
 }
-
-
-/* =========================================================
-   INDICADOR "ESCRIBIENDO..."
-   Lo utilizará JavaScript
-   ========================================================= */
 
 .nexus-ai-escribiendo {
     display: flex;
@@ -4668,11 +4141,6 @@ body.carrito-abierto {
 
 }
 
-
-/* =========================================================
-   FORMULARIO
-   ========================================================= */
-
 .nexus-ai-form {
     flex-shrink: 0;
 
@@ -4733,9 +4201,6 @@ body.carrito-abierto {
         rgba(0, 229, 255, 0.05);
 }
 
-
-/* BOTÓN ENVIAR */
-
 .nexus-ai-form button {
     width: 45px;
     height: 45px;
@@ -4783,11 +4248,6 @@ body.carrito-abierto {
     transform: none;
 }
 
-
-/* =========================================================
-   PIE
-   ========================================================= */
-
 .nexus-ai-footer {
     flex-shrink: 0;
 
@@ -4806,11 +4266,6 @@ body.carrito-abierto {
     letter-spacing: 1px;
 }
 
-
-/* =========================================================
-   BOTÓN FLOTANTE CUANDO CHAT ESTÁ ABIERTO
-   ========================================================= */
-
 .chatbot-boton.chat-abierto {
     transform: scale(0.94);
 
@@ -4818,11 +4273,6 @@ body.carrito-abierto {
         0 0 25px
         rgba(139, 92, 246, 0.30);
 }
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -4838,11 +4288,6 @@ body.carrito-abierto {
     }
 
 }
-
-
-/* =========================================================
-   CELULAR
-   ========================================================= */
 
 @media (max-width: 500px) {
 
@@ -4926,10 +4371,6 @@ body.carrito-abierto {
     }
 
 }
-/* =========================================
-   CHECKOUT - DATOS DE CONTACTO
-   ========================================= */
-
 .checkout-overlay {
     position: fixed;
     inset: 0;
@@ -5118,8 +4559,6 @@ body.carrito-abierto {
     line-height: 1.5;
 }
 
-/* MÓVIL */
-
 @media (max-width: 600px) {
 
     .checkout-modal {
@@ -5151,8 +4590,6 @@ body.carrito-abierto {
     background: linear-gradient(135deg, #7133e8, #bd35e6);
     transform: translateY(-2px);
 }
-
-/* LOGIN ADMINISTRATIVO - PANEL MI CUENTA */
 
 .admin-acceso-contenedor {
     grid-column: 1 / -1;
@@ -5262,8 +4699,6 @@ body.carrito-abierto {
     }
 }
 
-/* BOTONES DEL LOGIN ADMINISTRATIVO */
-
 .login-admin-panel .btn-admin-ingresar {
     display: flex;
     align-items: center;
@@ -5302,7 +4737,6 @@ body.carrito-abierto {
     filter: brightness(1.12);
 }
 
-/* Mostrar acceso a Mi cuenta en celulares */
 @media (max-width: 768px) {
 
     .header-actions .user-btn,
@@ -5316,8 +4750,6 @@ body.carrito-abierto {
 
 }
 
-
-/* Mostrar el acceso a Mi cuenta en celulares */
 @media (max-width: 768px) {
     .navbar .acciones #btn-usuario {
         display: inline-flex !important;
