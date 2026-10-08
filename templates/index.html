@@ -1,1277 +1,760 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Nexus Gamer | Tecnología & Gaming</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
 
-    <!-- =========================================
-         BARRA DE NAVEGACIÓN
-         ========================================= -->
+<header class="navbar">
+    <div class="logo">NEXUS<span>GAMER</span></div>
 
-    <header class="navbar">
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#novedades">Novedades</a>
+    </nav>
 
-        <div class="logo">
-            NEXUS<span>GAMER</span>
-        </div>
-
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#productos">Productos</a>
-            <a href="#categorias">Categorías</a>
-            <a href="#ofertas">Ofertas</a>
-            <a href="#novedades">Novedades</a>
-        </nav>
-
-        <div class="acciones">
-
-            <button
-                type="button"
-                id="btn-buscar"
-                aria-label="Buscar productos">
-                🔍
-            </button>
-
-            <button
-            type="button"
-            id="btn-usuario"
-            aria-label="Abrir panel de usuario">
-            👤
-            </button>
-
-            <button
-                type="button"
-                id="btn-abrir-carrito"
-                aria-label="Abrir carrito">
-
-                🛒
-                <span id="contador-carrito">0</span>
-
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================
-         BUSCADOR DE PRODUCTOS
-         ========================================= -->
-
-    <div class="buscador-panel" id="buscador-panel">
-
-        <div class="buscador-contenido">
-
-            <span class="buscador-icono">
-                🔍
-            </span>
-
-            <input
-                type="text"
-                id="buscador-input"
-                placeholder="Busca laptops, RTX, Logitech, Razer, SSD..."
-                autocomplete="off">
-
-            <button
-                type="button"
-                id="cerrar-buscador"
-                aria-label="Cerrar buscador">
-                ✕
-            </button>
-
-        </div>
-
-        <p
-            class="resultado-busqueda"
-            id="resultado-busqueda">
-        </p>
-
+    <div class="acciones">
+        <button type="button" id="btn-buscar" aria-label="Buscar productos">🔍</button>
+        <button type="button" id="btn-usuario" aria-label="Abrir panel de usuario">👤</button>
+        <button type="button" id="btn-abrir-carrito" aria-label="Abrir carrito">
+            🛒
+            <span id="contador-carrito">0</span>
+        </button>
     </div>
+</header>
 
+<div class="buscador-panel" id="buscador-panel">
+    <div class="buscador-contenido">
+        <span class="buscador-icono">🔍</span>
+        <input
+            type="text"
+            id="buscador-input"
+            placeholder="Busca laptops, RTX, Logitech, Razer, SSD..."
+            autocomplete="off"
+        >
+        <button type="button" id="cerrar-buscador" aria-label="Cerrar buscador">✕</button>
+    </div>
+    <p class="resultado-busqueda" id="resultado-busqueda"></p>
+</div>
 
-    <!-- =========================================
-         CONTENIDO PRINCIPAL
-         ========================================= -->
+<main>
 
-    <main>
+    <section class="hero" id="inicio">
+        <div class="hero-contenido">
+            <div class="etiqueta">⚡ NUEVA GENERACIÓN GAMER</div>
 
+            <h1>
+                LLEVA TU SETUP
+                <span>AL SIGUIENTE NIVEL</span>
+            </h1>
 
-        <!-- =========================================
-             PORTADA / HERO
-             ========================================= -->
+            <p>
+                Descubre tecnología, componentes y periféricos
+                diseñados para jugadores que buscan potencia,
+                velocidad y estilo.
+            </p>
 
-        <section class="hero" id="inicio">
+            <div class="hero-botones">
+                <a href="#productos" class="btn-principal">EXPLORAR PRODUCTOS</a>
+                <a href="#ofertas" class="btn-secundario">VER OFERTAS</a>
+            </div>
+        </div>
 
-            <div class="hero-contenido">
+        <div class="hero-visual">
+            <div class="circulo"></div>
+            <div class="setup">
+                <div class="monitor"><span>NEXUS</span></div>
+                <div class="base-monitor"></div>
+                <div class="teclado"></div>
+                <div class="mouse"></div>
+            </div>
+        </div>
+    </section>
 
-                <div class="etiqueta">
-                    ⚡ NUEVA GENERACIÓN GAMER
-                </div>
+    <section class="beneficios">
+        <div class="beneficio">
+            <span>🚚</span>
+            <div>
+                <h3>Envíos rápidos</h3>
+                <p>A todo el Perú</p>
+            </div>
+        </div>
 
-                <h1>
-                    LLEVA TU SETUP
-                    <span>AL SIGUIENTE NIVEL</span>
-                </h1>
+        <div class="beneficio">
+            <span>🛡️</span>
+            <div>
+                <h3>Compra segura</h3>
+                <p>Protegemos tus compras</p>
+            </div>
+        </div>
 
+        <div class="beneficio">
+            <span>🎮</span>
+            <div>
+                <h3>Productos Gamer</h3>
+                <p>Tecnología seleccionada</p>
+            </div>
+        </div>
+
+        <div class="beneficio">
+            <span>🤖</span>
+            <div>
+                <h3>Nexus AI</h3>
+                <p>Asistente inteligente</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="productos-seccion" id="productos">
+        <div class="productos-encabezado">
+            <div>
+                <span class="subtitulo-productos">EQUIPA TU SETUP</span>
+                <h2>PRODUCTOS <span>DESTACADOS</span></h2>
                 <p>
-                    Descubre tecnología, componentes y periféricos
-                    diseñados para jugadores que buscan potencia,
-                    velocidad y estilo.
+                    Descubre nuestra selección de tecnología gamer,
+                    periféricos y componentes.
                 </p>
-
-                <div class="hero-botones">
-
-                    <a href="#productos"
-                       class="btn-principal">
-                        EXPLORAR PRODUCTOS
-                    </a>
-
-                    <a href="#ofertas"
-                       class="btn-secundario">
-                        VER OFERTAS
-                    </a>
-
-                </div>
-
             </div>
 
-
-            <!-- DISEÑO DEL SETUP -->
-
-            <div class="hero-visual">
-
-                <div class="circulo"></div>
-
-                <div class="setup">
-
-                    <div class="monitor">
-                        <span>NEXUS</span>
-                    </div>
-
-                    <div class="base-monitor"></div>
-
-                    <div class="teclado"></div>
-
-                    <div class="mouse"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             BENEFICIOS
-             ========================================= -->
-
-        <section class="beneficios">
-
-            <div class="beneficio">
-
-                <span>🚚</span>
-
-                <div>
-                    <h3>Envíos rápidos</h3>
-                    <p>A todo el Perú</p>
-                </div>
-
-            </div>
-
-
-            <div class="beneficio">
-
-                <span>🛡️</span>
-
-                <div>
-                    <h3>Compra segura</h3>
-                    <p>Protegemos tus compras</p>
-                </div>
-
-            </div>
-
-
-            <div class="beneficio">
-
-                <span>🎮</span>
-
-                <div>
-                    <h3>Productos Gamer</h3>
-                    <p>Tecnología seleccionada</p>
-                </div>
-
-            </div>
-
-
-            <div class="beneficio">
-
-                <span>🤖</span>
-
-                <div>
-                    <h3>Nexus AI</h3>
-                    <p>Asistente inteligente</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             PRODUCTOS
-             ========================================= -->
-
-        <section
-            class="productos-seccion"
-            id="productos">
-
-
-            <!-- ENCABEZADO -->
-
-            <div class="productos-encabezado">
-
-                <div>
-
-                    <span class="subtitulo-productos">
-                        EQUIPA TU SETUP
-                    </span>
-
-                    <h2>
-                        PRODUCTOS
-                        <span>DESTACADOS</span>
-                    </h2>
-
-                    <p>
-                        Descubre nuestra selección de tecnología gamer,
-                        periféricos y componentes.
-                    </p>
-
-                </div>
-
-
-                <a href="#productos"
-                   class="ver-todos">
-                    VER TODOS →
-                </a>
-
-            </div>
-
-
-            <!-- =========================================
-                 FILTROS
-                 ========================================= -->
-
-            <div class="filtros-productos" id="categorias">
-
-                <button
-                    type="button"
-                    class="filtro activo"
-                    data-categoria="Todos">
-                    Todos
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Laptops Gamer">
-                    Laptops
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Componentes">
-                    Componentes
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Monitores">
-                    Monitores
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Teclados">
-                    Teclados
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Mouse">
-                    Mouse
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Audio">
-                    Audio
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Almacenamiento">
-                    SSD
-                </button>
-
-                <button
-                    type="button"
-                    class="filtro"
-                    data-categoria="Setup Gamer">
-                    Setup
-                </button>
-
-            </div>
-
-
-            <!-- =========================================
-                 PRODUCTOS OBTENIDOS DESDE MYSQL
-                 ========================================= -->
-
-            <div class="productos-grid">
-
-                {% for producto in productos %}
-
-                <article
-                    class="producto-card"
-                    data-categoria="{{ producto.categoria }}"
-                    data-id="{{ producto.id_producto }}">
-
-
-                    <!-- ================================
-                         ZONA DE IMAGEN
-                         ================================ -->
-
-                    <div class="producto-imagen">
-
-
-                        <!-- ETIQUETAS -->
-
-                        <div class="producto-etiquetas">
-
-                            {% if producto.nuevo %}
-
-                                <span class="badge nuevo">
-                                    NUEVO
-                                </span>
-
-                            {% endif %}
-
-
-                            {% if producto.precio_anterior
-                                  and producto.precio_anterior > producto.precio %}
-
-                                <span class="badge descuento">
-
-                                    -{{
-                                        (
-                                            (
-                                                producto.precio_anterior
-                                                - producto.precio
-                                            )
-                                            / producto.precio_anterior
-                                            * 100
-                                        ) | round | int
-                                    }}%
-
-                                </span>
-
-                            {% endif %}
-
-                        </div>
-
-
-                        <!-- FAVORITO -->
-
-                        <button
-    type="button"
-    class="favorito"
-    data-id="{{ producto.id_producto }}"
-    data-nombre="{{ producto.nombre }}"
-    aria-label="Agregar {{ producto.nombre }} a favoritos">
-
-    ♡
-
-</button>
-
-
-                        <!-- IMAGEN REAL -->
-
-                        <div class="producto-foto">
-
-                            {% if producto.imagen %}
-
-                                <img
-                                    src="{{ url_for(
-                                        'static',
-                                        filename='img/' + producto.imagen
-                                    ) }}"
-                                    alt="{{ producto.nombre }}"
-                                    title="{{ producto.nombre }}"
-                                    loading="lazy">
-
-                            {% else %}
-
-                                <div class="producto-placeholder">
-
-                                    <span class="producto-marca">
-                                        {{ producto.marca }}
-                                    </span>
-
-                                    <strong>
-                                        {{ producto.nombre }}
-                                    </strong>
-
-                                </div>
-
-                            {% endif %}
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ================================
-                         INFORMACIÓN
-                         ================================ -->
-
-                    <div class="producto-info">
-
-
-                        <!-- CATEGORÍA -->
-
-                        <span class="producto-categoria">
-                            {{ producto.categoria }}
-                        </span>
-
-
-                        <!-- NOMBRE -->
-
-                        <h3>
-                            {{ producto.nombre }}
-                        </h3>
-
-
-                        <!-- MARCA -->
-
-                        <span class="producto-marca-info">
-                            {{ producto.marca }}
-                        </span>
-
-
-                        <!-- ESTRELLAS -->
-
-                        <div class="estrellas">
-
-                            ★★★★★
-
-                            <span>
-                                (4.8)
-                            </span>
-
-                        </div>
-
-
-                        <!-- STOCK -->
-
-                        <div class="producto-stock">
-
-                            {% if producto.stock > 10 %}
-
-                                <span class="stock disponible">
-                                    ● En stock
-                                </span>
-
-                            {% elif producto.stock > 0 %}
-
-                                <span class="stock limitado">
-                                    ● Solo {{ producto.stock }} disponibles
-                                </span>
-
-                            {% else %}
-
-                                <span class="stock agotado">
-                                    ● Agotado
-                                </span>
-
-                            {% endif %}
-
-                        </div>
-
-
-                        <!-- ================================
-                             PRECIO + CARRITO
-                             ================================ -->
-
-                        <div class="producto-precios">
-
-                            <div class="contenedor-precios">
-
-
-                                <!-- PRECIO ACTUAL -->
-
-                                <span class="precio-actual">
-                                    S/ {{ "%.2f"|format(producto.precio) }}
-                                </span>
-
-
-                                <!-- PRECIO ANTERIOR -->
-
-                                {% if producto.precio_anterior
-                                      and producto.precio_anterior > producto.precio %}
-
-                                    <span class="precio-anterior">
-                                        S/ {{ "%.2f"|format(producto.precio_anterior) }}
-                                    </span>
-
-                                {% endif %}
-
-                            </div>
-
-
-                            <!-- BOTÓN AGREGAR AL CARRITO -->
-
-                            {% if producto.stock > 0 %}
-
-                                <button
-                                    type="button"
-                                    class="btn-carrito"
-
-                                    data-id="{{ producto.id_producto }}"
-                                    data-codigo="{{ producto.codigo }}"
-                                    data-nombre="{{ producto.nombre }}"
-                                    data-precio="{{ producto.precio }}"
-                                    data-stock="{{ producto.stock }}"
-
-                                    aria-label="Agregar {{ producto.nombre }} al carrito">
-
-                                    🛒
-
-                                </button>
-
-                            {% else %}
-
-                                <button
-                                    type="button"
-                                    class="btn-carrito"
-                                    disabled>
-
-                                    ✕
-
-                                </button>
-
-                            {% endif %}
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                {% else %}
-
-                    <!-- SI MYSQL ESTÁ VACÍO -->
-
-                    <div class="sin-productos">
-
-                        <h3>
-                            No hay productos disponibles
-                        </h3>
-
-                        <p>
-                            Actualmente no encontramos productos
-                            registrados en la base de datos.
-                        </p>
-
-                    </div>
-
-                {% endfor %}
-
-            </div>
-
-        </section>
-
-        <!-- =========================================
-     OFERTAS
-     ========================================= -->
-
-<section class="ofertas-seccion" id="ofertas">
-
-    <div class="ofertas-encabezado">
-
-        <div>
-            <span class="ofertas-subtitulo">
-                ⚡ OFERTAS NEXUS
-            </span>
-
-            <h2>
-                POTENCIA TU SETUP
-                <span>POR MENOS</span>
-            </h2>
-
-            <p>
-                Aprovecha descuentos especiales en tecnología,
-                componentes y periféricos gamer.
-            </p>
+            <a href="#productos" class="ver-todos">VER TODOS →</a>
         </div>
 
-        <div class="ofertas-badge">
-            HASTA
-            <strong>20%</strong>
-            OFF
+        <div class="filtros-productos" id="categorias">
+            <button type="button" class="filtro activo" data-categoria="Todos">Todos</button>
+            <button type="button" class="filtro" data-categoria="Laptops Gamer">Laptops</button>
+            <button type="button" class="filtro" data-categoria="Componentes">Componentes</button>
+            <button type="button" class="filtro" data-categoria="Monitores">Monitores</button>
+            <button type="button" class="filtro" data-categoria="Teclados">Teclados</button>
+            <button type="button" class="filtro" data-categoria="Mouse">Mouse</button>
+            <button type="button" class="filtro" data-categoria="Audio">Audio</button>
+            <button type="button" class="filtro" data-categoria="Almacenamiento">SSD</button>
+            <button type="button" class="filtro" data-categoria="Setup Gamer">Setup</button>
         </div>
 
-    </div>
+        <div class="productos-grid">
+            {% for producto in productos %}
 
+            <article
+                class="producto-card"
+                data-categoria="{{ producto.categoria }}"
+                data-id="{{ producto.id_producto }}"
+            >
+                <div class="producto-imagen">
+                    <div class="producto-etiquetas">
+                        {% if producto.nuevo %}
+                        <span class="badge nuevo">NUEVO</span>
+                        {% endif %}
 
-    <div class="ofertas-grid">
-
-        {% for producto in productos %}
-
-            {% if producto.precio_anterior
-                  and producto.precio_anterior > producto.precio %}
-
-                <article class="oferta-card">
-
-                    <!-- DESCUENTO -->
-
-                    <div class="oferta-descuento">
-
-                        -{{ (
-                            ((producto.precio_anterior - producto.precio)
-                            / producto.precio_anterior) * 100
-                        ) | round | int }}%
-
-                    </div>
-
-
-                    <!-- IMAGEN -->
-
-                    <div class="oferta-imagen">
-
-                        <img
-                            src="{{ url_for(
-                                'static',
-                                filename='img/' ~ producto.imagen
-                            ) }}"
-                            alt="{{ producto.nombre }}"
-                            loading="lazy">
-
-                    </div>
-
-
-                    <!-- INFORMACIÓN -->
-
-                    <div class="oferta-info">
-
-                        <span class="oferta-categoria">
-                            {{ producto.categoria }}
+                        {% if producto.precio_anterior and producto.precio_anterior > producto.precio %}
+                        <span class="badge descuento">
+                            -{{ (((producto.precio_anterior - producto.precio) / producto.precio_anterior) * 100) | round | int }}%
                         </span>
-
-                        <h3>
-                            {{ producto.nombre }}
-                        </h3>
-
-                        <span class="oferta-marca">
-                            {{ producto.marca }}
-                        </span>
-
-
-                        <div class="oferta-precios">
-
-                            <div>
-
-                                <span class="oferta-precio-anterior">
-                                    S/ {{ "%.2f"|format(producto.precio_anterior) }}
-                                </span>
-
-                                <strong>
-                                    S/ {{ "%.2f"|format(producto.precio) }}
-                                </strong>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="btn-carrito oferta-carrito"
-
-                                data-id="{{ producto.id_producto }}"
-                                data-nombre="{{ producto.nombre }}"
-                                data-precio="{{ producto.precio }}"
-                                data-stock="{{ producto.stock }}"
-                                data-imagen="{{ url_for(
-                                    'static',
-                                    filename='img/' ~ producto.imagen
-                                ) }}">
-
-                                🛒
-
-                            </button>
-
-                        </div>
-
+                        {% endif %}
                     </div>
-
-                </article>
-
-            {% endif %}
-
-        {% endfor %}
-
-    </div>
-
-</section>
-<!-- =========================================
-     NOVEDADES
-     ========================================= -->
-
-<section class="novedades-seccion" id="novedades">
-
-    <div class="novedades-encabezado">
-        <div>
-            <span class="novedades-subtitulo">🚀 RECIÉN LLEGADOS</span>
-
-            <h2>
-                ÚLTIMAS <span>NOVEDADES</span>
-            </h2>
-
-            <p>
-                Descubre los nuevos productos que acaban de llegar
-                a Nexus Gamer.
-            </p>
-        </div>
-
-        <div class="novedades-indicador">
-            NEW
-        </div>
-    </div>
-
-
-    <div class="novedades-grid">
-
-        {% for producto in productos %}
-
-            {% if producto.nuevo %}
-
-            <article class="novedad-card">
-
-                <!-- IMAGEN -->
-
-                <div class="novedad-imagen">
-
-                    <span class="novedad-badge">
-                        NUEVO
-                    </span>
 
                     <button
                         type="button"
                         class="favorito"
                         data-id="{{ producto.id_producto }}"
                         data-nombre="{{ producto.nombre }}"
-                        data-precio="{{ producto.precio }}"
-                        data-imagen="{{ url_for(
-                            'static',
-                            filename='img/' ~ producto.imagen
-                        ) }}">
-                        ♡
-                    </button>
+                        aria-label="Agregar {{ producto.nombre }} a favoritos"
+                    >♡</button>
 
-                    <img
-                        src="{{ url_for(
-                            'static',
-                            filename='img/' ~ producto.imagen
-                        ) }}"
-                        alt="{{ producto.nombre }}"
-                        loading="lazy">
-
+                    <div class="producto-foto">
+                        {% if producto.imagen %}
+                            {% if producto.imagen.startswith('https://') or producto.imagen.startswith('/static/') %}
+                            <img
+                                src="{{ producto.imagen }}"
+                                alt="{{ producto.nombre }}"
+                                title="{{ producto.nombre }}"
+                                loading="lazy"
+                            >
+                            {% else %}
+                            <img
+                                src="{{ url_for('static', filename='img/' ~ producto.imagen) }}"
+                                alt="{{ producto.nombre }}"
+                                title="{{ producto.nombre }}"
+                                loading="lazy"
+                            >
+                            {% endif %}
+                        {% else %}
+                        <div class="producto-placeholder">
+                            <span class="producto-marca">{{ producto.marca }}</span>
+                            <strong>{{ producto.nombre }}</strong>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
 
+                <div class="producto-info">
+                    <span class="producto-categoria">{{ producto.categoria }}</span>
+                    <h3>{{ producto.nombre }}</h3>
+                    <span class="producto-marca-info">{{ producto.marca }}</span>
 
-                <!-- INFORMACIÓN -->
-
-                <div class="novedad-info">
-
-                    <span class="novedad-categoria">
-                        {{ producto.categoria }}
-                    </span>
-
-                    <h3>
-                        {{ producto.nombre }}
-                    </h3>
-
-                    <span class="novedad-marca">
-                        {{ producto.marca }}
-                    </span>
-
-
-                    <div class="novedad-stock">
-
-                        {% if producto.stock > 10 %}
-
-                            <span class="stock disponible">
-                                ● En stock
-                            </span>
-
-                        {% elif producto.stock > 0 %}
-
-                            <span class="stock limitado">
-                                ● Solo {{ producto.stock }} disponibles
-                            </span>
-
-                        {% else %}
-
-                            <span class="stock agotado">
-                                ● Agotado
-                            </span>
-
-                        {% endif %}
-
+                    <div class="estrellas">
+                        ★★★★★
+                        <span>(4.8)</span>
                     </div>
 
+                    <div class="producto-stock">
+                        {% if producto.stock > 10 %}
+                        <span class="stock disponible">● En stock</span>
+                        {% elif producto.stock > 0 %}
+                        <span class="stock limitado">
+                            ● Solo {{ producto.stock }} disponibles
+                        </span>
+                        {% else %}
+                        <span class="stock agotado">● Agotado</span>
+                        {% endif %}
+                    </div>
 
-                    <div class="novedad-footer">
-
-                        <div class="novedad-precios">
-
-                            <strong>
+                    <div class="producto-precios">
+                        <div class="contenedor-precios">
+                            <span class="precio-actual">
                                 S/ {{ "%.2f"|format(producto.precio) }}
-                            </strong>
-
-                            {% if producto.precio_anterior
-                                  and producto.precio_anterior > producto.precio %}
-
-                            <span>
-                                S/ {{ "%.2f"|format(producto.precio_anterior) }}
                             </span>
 
+                            {% if producto.precio_anterior and producto.precio_anterior > producto.precio %}
+                            <span class="precio-anterior">
+                                S/ {{ "%.2f"|format(producto.precio_anterior) }}
+                            </span>
                             {% endif %}
-
                         </div>
 
-
+                        {% if producto.stock > 0 %}
                         <button
                             type="button"
-                            class="btn-carrito novedad-carrito"
+                            class="btn-carrito"
                             data-id="{{ producto.id_producto }}"
+                            data-codigo="{{ producto.codigo }}"
                             data-nombre="{{ producto.nombre }}"
                             data-precio="{{ producto.precio }}"
                             data-stock="{{ producto.stock }}"
-                            data-imagen="{{ url_for(
-                                'static',
-                                filename='img/' ~ producto.imagen
-                            ) }}">
-                            🛒
-                        </button>
-
+                            aria-label="Agregar {{ producto.nombre }} al carrito"
+                        >🛒</button>
+                        {% else %}
+                        <button type="button" class="btn-carrito" disabled>✕</button>
+                        {% endif %}
                     </div>
-
                 </div>
-
             </article>
 
-            {% endif %}
+            {% else %}
+            <div class="sin-productos">
+                <h3>No hay productos disponibles</h3>
+                <p>
+                    Actualmente no encontramos productos
+                    registrados en la base de datos.
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
 
-        {% endfor %}
+    <section class="ofertas-seccion" id="ofertas">
+        <div class="ofertas-encabezado">
+            <div>
+                <span class="ofertas-subtitulo">⚡ OFERTAS NEXUS</span>
+                <h2>POTENCIA TU SETUP <span>POR MENOS</span></h2>
+                <p>
+                    Aprovecha descuentos especiales en tecnología,
+                    componentes y periféricos gamer.
+                </p>
+            </div>
 
-    </div>
+            <div class="ofertas-badge">
+                HASTA
+                <strong>20%</strong>
+                OFF
+            </div>
+        </div>
 
-</section>
-   
+        <div class="ofertas-grid">
+            {% for producto in productos %}
+                {% if producto.precio_anterior and producto.precio_anterior > producto.precio %}
+                <article class="oferta-card">
+                    <div class="oferta-descuento">
+                        -{{ (((producto.precio_anterior - producto.precio) / producto.precio_anterior) * 100) | round | int }}%
+                    </div>
 
-    </main>
+                    <div class="oferta-imagen">
+                        {% if producto.imagen %}
+                            {% if producto.imagen.startswith('https://') or producto.imagen.startswith('/static/') %}
+                            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" loading="lazy">
+                            {% else %}
+                            <img
+                                src="{{ url_for('static', filename='img/' ~ producto.imagen) }}"
+                                alt="{{ producto.nombre }}"
+                                loading="lazy"
+                            >
+                            {% endif %}
+                        {% endif %}
+                    </div>
 
-    <!-- =========================================
-     PANEL DE USUARIO
-     ========================================= -->
+                    <div class="oferta-info">
+                        <span class="oferta-categoria">{{ producto.categoria }}</span>
+                        <h3>{{ producto.nombre }}</h3>
+                        <span class="oferta-marca">{{ producto.marca }}</span>
+
+                        <div class="oferta-precios">
+                            <div>
+                                <span class="oferta-precio-anterior">
+                                    S/ {{ "%.2f"|format(producto.precio_anterior) }}
+                                </span>
+                                <strong>S/ {{ "%.2f"|format(producto.precio) }}</strong>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn-carrito oferta-carrito"
+                                data-id="{{ producto.id_producto }}"
+                                data-codigo="{{ producto.codigo }}"
+                                data-nombre="{{ producto.nombre }}"
+                                data-precio="{{ producto.precio }}"
+                                data-stock="{{ producto.stock }}"
+                                data-imagen="{% if producto.imagen %}{% if producto.imagen.startswith('https://') or producto.imagen.startswith('/static/') %}{{ producto.imagen }}{% else %}{{ url_for('static', filename='img/' ~ producto.imagen) }}{% endif %}{% endif %}"
+                                {% if producto.stock <= 0 %}disabled{% endif %}
+                            >{% if producto.stock > 0 %}🛒{% else %}✕{% endif %}</button>
+                        </div>
+                    </div>
+                </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="novedades-seccion" id="novedades">
+        <div class="novedades-encabezado">
+            <div>
+                <span class="novedades-subtitulo">🚀 RECIÉN LLEGADOS</span>
+                <h2>ÚLTIMAS <span>NOVEDADES</span></h2>
+                <p>
+                    Descubre los nuevos productos que acaban de llegar
+                    a Nexus Gamer.
+                </p>
+            </div>
+
+            <div class="novedades-indicador">NEW</div>
+        </div>
+
+        <div class="novedades-grid">
+            {% for producto in productos %}
+                {% if producto.nuevo %}
+                <article class="novedad-card">
+                    <div class="novedad-imagen">
+                        <span class="novedad-badge">NUEVO</span>
+
+                        <button
+                            type="button"
+                            class="favorito"
+                            data-id="{{ producto.id_producto }}"
+                            data-nombre="{{ producto.nombre }}"
+                            data-precio="{{ producto.precio }}"
+                            data-imagen="{% if producto.imagen %}{% if producto.imagen.startswith('https://') or producto.imagen.startswith('/static/') %}{{ producto.imagen }}{% else %}{{ url_for('static', filename='img/' ~ producto.imagen) }}{% endif %}{% endif %}"
+                        >♡</button>
+
+                        {% if producto.imagen %}
+                            {% if producto.imagen.startswith('https://') or producto.imagen.startswith('/static/') %}
+                            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" loading="lazy">
+                            {% else %}
+                            <img
+                                src="{{ url_for('static', filename='img/' ~ producto.imagen) }}"
+                                alt="{{ producto.nombre }}"
+                                loading="lazy"
+                            >
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="novedad-info">
+                        <span class="novedad-categoria">{{ producto.categoria }}</span>
+                        <h3>{{ producto.nombre }}</h3>
+                        <span class="novedad-marca">{{ producto.marca }}</span>
+
+                        <div class="novedad-stock">
+                            {% if producto.stock > 10 %}
+                            <span class="stock disponible">● En stock</span>
+                            {% elif producto.stock > 0 %}
+                            <span class="stock limitado">
+                                ● Solo {{ producto.stock }} disponibles
+                            </span>
+                            {% else %}
+                            <span class="stock agotado">● Agotado</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="novedad-footer">
+                            <div class="novedad-precios">
+                                <strong>S/ {{ "%.2f"|format(producto.precio) }}</strong>
+
+                                {% if producto.precio_anterior and producto.precio_anterior > producto.precio %}
+                                <span>
+                                    S/ {{ "%.2f"|format(producto.precio_anterior) }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn-carrito novedad-carrito"
+                                data-id="{{ producto.id_producto }}"
+                                data-codigo="{{ producto.codigo }}"
+                                data-nombre="{{ producto.nombre }}"
+                                data-precio="{{ producto.precio }}"
+                                data-stock="{{ producto.stock }}"
+                                data-imagen="{% if producto.imagen %}{% if producto.imagen.startswith('https://') or producto.imagen.startswith('/static/') %}{{ producto.imagen }}{% else %}{{ url_for('static', filename='img/' ~ producto.imagen) }}{% endif %}{% endif %}"
+                                {% if producto.stock <= 0 %}disabled{% endif %}
+                            >{% if producto.stock > 0 %}🛒{% else %}✕{% endif %}</button>
+                        </div>
+                    </div>
+                </article>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
 
 <div class="usuario-overlay" id="usuario-overlay"></div>
 
 <aside class="usuario-panel" id="usuario-panel">
-
-    <!-- CABECERA -->
     <div class="usuario-header">
-
         <div class="usuario-identidad">
-
-            <div class="usuario-avatar">
-                👤
-            </div>
-
+            <div class="usuario-avatar">👤</div>
             <div>
                 <span>NEXUS ID</span>
                 <h2>MI CUENTA</h2>
             </div>
-
         </div>
 
         <button
             type="button"
             class="cerrar-usuario"
             id="cerrar-usuario"
-            aria-label="Cerrar panel">
-            ✕
-        </button>
-
+            aria-label="Cerrar panel"
+        >✕</button>
     </div>
 
-
-    <!-- OPCIONES -->
     <div class="usuario-menu">
-
         <button type="button" id="usuario-favoritos">
             <span>♥</span>
-
             <div>
                 <strong>Mis favoritos</strong>
                 <small>Productos guardados</small>
             </div>
-
             <b id="contador-favoritos">0</b>
         </button>
 
-
         <button type="button" id="usuario-carrito">
             <span>🛒</span>
-
             <div>
                 <strong>Mi carrito</strong>
                 <small>Ver productos agregados</small>
             </div>
-
             <b id="contador-carrito-usuario">0</b>
         </button>
 
-
         <button type="button">
             <span>📦</span>
-
             <div>
                 <strong>Mis pedidos</strong>
                 <small>Próximamente</small>
             </div>
         </button>
 
-
         <button type="button">
             <span>⚙️</span>
-
             <div>
                 <strong>Mi perfil</strong>
                 <small>Próximamente</small>
             </div>
         </button>
 
+        <div class="admin-acceso-contenedor">
+            <button
+                type="button"
+                id="btn-login-admin"
+                class="btn-acceso-admin"
+            >
+                🔐 Iniciar sesión administrativa
+            </button>
+
+            <div id="login-admin-panel" class="login-admin-panel" hidden>
+                <h3>🔐 Iniciar sesión</h3>
+                <p>Acceso exclusivo para administradores y empleados.</p>
+
+                <form action="{{ url_for('admin_login') }}" method="POST">
+                    <input
+                        type="hidden"
+                        name="csrf_token"
+                        value="{{ csrf_token() }}"
+                    >
+
+                    <label for="admin-correo">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="admin-correo"
+                        name="correo"
+                        placeholder="admin@nexusgamer.com"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="admin-password">Contraseña</label>
+                    <input
+                        type="password"
+                        id="admin-password"
+                        name="password"
+                        placeholder="Ingresa tu contraseña"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button type="submit" class="btn-admin-ingresar">
+                        Iniciar sesión
+                    </button>
+                </form>
+
+                <button
+                    type="button"
+                    id="btn-volver-cuenta"
+                    class="btn-volver-cuenta"
+                >
+                    ← Volver a Mi cuenta
+                </button>
+            </div>
+        </div>
     </div>
 
-
-    <!-- FAVORITOS -->
     <div class="usuario-favoritos-seccion">
-
         <div class="usuario-seccion-titulo">
-
             <div>
                 <span>GUARDADOS</span>
                 <h3>MIS FAVORITOS</h3>
             </div>
 
-            <span id="cantidad-favoritos-texto">
-                0 productos
-            </span>
-
+            <span id="cantidad-favoritos-texto">0 productos</span>
         </div>
 
-
-        <div
-            class="lista-favoritos"
-            id="lista-favoritos">
-        </div>
-
+        <div class="lista-favoritos" id="lista-favoritos"></div>
     </div>
-
 </aside>
 
+<div class="carrito-overlay" id="carrito-overlay"></div>
 
+<aside class="carrito-panel" id="carrito-panel">
+    <div class="carrito-header">
+        <div>
+            <span class="carrito-subtitulo">TU COMPRA</span>
+            <h2>MI CARRITO</h2>
+        </div>
 
-    <!-- =========================================
-         FONDO OSCURO DEL CARRITO
-         ========================================= -->
-
-    <div
-        class="carrito-overlay"
-        id="carrito-overlay">
+        <button
+            type="button"
+            class="cerrar-carrito"
+            id="cerrar-carrito"
+            aria-label="Cerrar carrito"
+        >✕</button>
     </div>
 
-
-    <!-- =========================================
-         CARRITO DE COMPRAS
-         ========================================= -->
-
-    <aside
-        class="carrito-panel"
-        id="carrito-panel">
-
-
-        <!-- CABECERA -->
-
-        <div class="carrito-header">
-
-            <div>
-
-                <span class="carrito-subtitulo">
-                    TU COMPRA
-                </span>
-
-                <h2>
-                    MI CARRITO
-                </h2>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="cerrar-carrito"
-                id="cerrar-carrito"
-                aria-label="Cerrar carrito">
-
-                ✕
-
-            </button>
-
-        </div>
-
-
-        <!-- =========================================
-             PRODUCTOS DEL CARRITO
-             ========================================= -->
-
-        <div
-            class="carrito-productos"
-            id="carrito-productos">
-
-            <div class="carrito-vacio">
-
-                <div class="carrito-vacio-icono">
-                    🛒
-                </div>
-
-                <h3>
-                    Tu carrito está vacío
-                </h3>
-
-                <p>
-                    Agrega productos gamer y arma
-                    tu próximo setup.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================================
-             RESUMEN
-             ========================================= -->
-
-        <div class="carrito-footer">
-
-            <div class="carrito-resumen">
-
-                <span>
-                    Subtotal
-                </span>
-
-                <strong id="carrito-subtotal">
-                    S/ 0.00
-                </strong>
-
-            </div>
-
-
-            <p class="carrito-envio">
-                🚚 Envío calculado al finalizar la compra
+    <div class="carrito-productos" id="carrito-productos">
+        <div class="carrito-vacio">
+            <div class="carrito-vacio-icono">🛒</div>
+            <h3>Tu carrito está vacío</h3>
+            <p>
+                Agrega productos gamer y arma
+                tu próximo setup.
             </p>
+        </div>
+    </div>
 
-
-            <button
-                type="button"
-                class="btn-finalizar"
-                id="btn-finalizar">
-
-                FINALIZAR COMPRA
-
-            </button>
-
-
-            <button
-                type="button"
-                class="btn-seguir-comprando"
-                id="seguir-comprando">
-
-                SEGUIR COMPRANDO
-
-            </button>
-
+    <div class="carrito-footer">
+        <div class="carrito-resumen">
+            <span>Subtotal</span>
+            <strong id="carrito-subtotal">S/ 0.00</strong>
         </div>
 
-    </aside>
+        <p class="carrito-envio">
+            🚚 Envío calculado al finalizar la compra
+        </p>
 
-    <!-- =========================================
-     PANEL NEXUS AI
-     ========================================= -->
+        <button
+            type="button"
+            class="btn-finalizar"
+            id="btn-finalizar"
+        >
+            FINALIZAR COMPRA
+        </button>
+
+        <button
+            type="button"
+            class="btn-seguir-comprando"
+            id="seguir-comprando"
+        >
+            SEGUIR COMPRANDO
+        </button>
+    </div>
+</aside>
+
+<div class="checkout-overlay" id="checkout-overlay"></div>
+
+<div class="checkout-modal" id="checkout-modal">
+    <div class="checkout-header">
+        <div>
+            <span>FINALIZA TU COMPRA</span>
+            <h2>DATOS DE CONTACTO</h2>
+        </div>
+
+        <button
+            type="button"
+            id="cerrar-checkout"
+            class="cerrar-checkout"
+        >✕</button>
+    </div>
+
+    <form id="checkout-form">
+        <div class="checkout-campo">
+            <label for="checkout-nombre">Nombre completo</label>
+            <input
+                type="text"
+                id="checkout-nombre"
+                placeholder="Ingresa tu nombre y apellido"
+                required
+            >
+        </div>
+
+        <div class="checkout-campo">
+            <label for="checkout-telefono">Celular / WhatsApp</label>
+            <input
+                type="tel"
+                id="checkout-telefono"
+                placeholder="Ej. 999 999 999"
+                required
+            >
+        </div>
+
+        <div class="checkout-campo">
+            <label for="checkout-correo">Correo electrónico</label>
+            <input
+                type="email"
+                id="checkout-correo"
+                placeholder="correo@ejemplo.com"
+                required
+            >
+        </div>
+
+        <div class="checkout-campo">
+            <label for="checkout-ciudad">Ciudad</label>
+            <input
+                type="text"
+                id="checkout-ciudad"
+                placeholder="Ej. Chiclayo"
+                required
+            >
+        </div>
+
+        <div class="checkout-campo">
+            <label for="checkout-direccion">Dirección de entrega</label>
+            <textarea
+                id="checkout-direccion"
+                placeholder="Av., Jr., calle, número y referencia"
+                required
+            ></textarea>
+        </div>
+
+        <button type="submit" class="btn-confirmar-pedido">
+            CONFIRMAR Y ENVIAR PEDIDO
+        </button>
+
+        <p class="checkout-aviso">
+            Nos comunicaremos contigo para coordinar tu compra y entrega.
+        </p>
+    </form>
+</div>
 
 <div class="nexus-ai-panel" id="nexus-ai-panel">
-
-    <!-- CABECERA -->
     <div class="nexus-ai-header">
-
         <div class="nexus-ai-identidad">
-
-            <div class="nexus-ai-avatar">
-                🤖
-            </div>
+            <div class="nexus-ai-avatar">🤖</div>
 
             <div>
                 <span>NEXUS ASSISTANT</span>
                 <h3>NEXUS AI</h3>
-
                 <div class="nexus-ai-estado">
                     <i></i>
                     En línea
                 </div>
             </div>
-
         </div>
 
         <button
             type="button"
             id="cerrar-nexus-ai"
             class="cerrar-nexus-ai"
-            aria-label="Cerrar asistente">
-            ✕
-        </button>
-
+            aria-label="Cerrar asistente"
+        >✕</button>
     </div>
 
-
-    <!-- MENSAJES -->
-    <div
-        class="nexus-ai-mensajes"
-        id="nexus-ai-mensajes">
-
+    <div class="nexus-ai-mensajes" id="nexus-ai-mensajes">
         <div class="mensaje-ai">
-
-            <div class="mensaje-avatar">
-                🤖
-            </div>
+            <div class="mensaje-avatar">🤖</div>
 
             <div class="mensaje-contenido">
-
                 <span>NEXUS AI</span>
-
                 <p>
                     ¡Hola! 👋 Soy NEXUS AI.
                     Puedo ayudarte a encontrar productos,
                     consultar precios, stock y recomendarte
                     opciones según tu presupuesto.
                 </p>
-
             </div>
-
         </div>
-
-
-        <!-- PREGUNTAS RÁPIDAS -->
 
         <div class="nexus-ai-sugerencias">
-
-            <button type="button">
-                ¿Qué laptops tienen?
-            </button>
-
-            <button type="button">
-                ¿Qué productos están en oferta?
-            </button>
-
-            <button type="button">
-                Recomiéndame una GPU
-            </button>
-
+            <button type="button">¿Qué laptops tienen?</button>
+            <button type="button">¿Qué productos están en oferta?</button>
+            <button type="button">Recomiéndame una GPU</button>
         </div>
-
     </div>
 
-
-    <!-- ESCRIBIR MENSAJE -->
-
-    <form
-        class="nexus-ai-form"
-        id="nexus-ai-form">
-
+    <form class="nexus-ai-form" id="nexus-ai-form">
         <input
             type="text"
             id="nexus-ai-input"
             placeholder="Pregúntale a NEXUS AI..."
             autocomplete="off"
-            maxlength="300">
+            maxlength="300"
+        >
 
         <button
             type="submit"
             id="nexus-ai-enviar"
-            aria-label="Enviar mensaje">
-            ➤
-        </button>
-
+            aria-label="Enviar mensaje"
+        >➤</button>
     </form>
 
     <div class="nexus-ai-footer">
         NEXUS AI • Asistente virtual
     </div>
-
 </div>
 
+<button
+    type="button"
+    class="chatbot-boton"
+    id="btn-nexus-ai"
+>
+    🤖
+    <span>Pregúntale a NEXUS AI</span>
+</button>
 
-    <!-- =========================================
-         BOTÓN NEXUS AI
-         ========================================= -->
-
-    <button
-        type="button"
-        class="chatbot-boton"
-        id="btn-nexus-ai">
-
-        🤖
-
-        <span>
-            Pregúntale a NEXUS AI
-        </span>
-
-    </button>
-
-
-    <!-- =========================================
-         JAVASCRIPT
-         ========================================= -->
-
-    <script
-        src="{{ url_for('static', filename='js/main.js') }}">
-    </script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
-
 </html>

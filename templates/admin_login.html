@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión | Nexus Gamer</title>
+
+    <style>
+        :root {
+            --fondo: #080812;
+            --tarjeta: #111020;
+            --borde: #483075;
+            --morado: #8538f5;
+            --celeste: #00d9f5;
+            --texto: #ffffff;
+            --secundario: #aaa8bb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background:
+                radial-gradient(
+                    ellipse at 50% 10%,
+                    #27134b 0%,
+                    transparent 55%
+                ),
+                var(--fondo);
+            color: var(--texto);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .login {
+            width: 100%;
+            max-width: 420px;
+            background: var(--tarjeta);
+            border: 1px solid var(--borde);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 70px #0009;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 29px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+
+        .logo span {
+            color: var(--celeste);
+        }
+
+        .icono {
+            width: 62px;
+            height: 62px;
+            border: 1px solid #6531c5;
+            border-radius: 17px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 20px;
+            background: #24143e;
+            font-size: 28px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 9px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: var(--secundario);
+            font-size: 13px;
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 9px;
+            color: #d4d0e2;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #353044;
+            border-radius: 10px;
+            background: #191826;
+            color: white;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--morado);
+        }
+
+        .password-contenedor {
+            position: relative;
+        }
+
+        .password-contenedor input {
+            padding-right: 55px;
+        }
+
+        .ver-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 0;
+            color: #b7b3c8;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .boton-login {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(
+                100deg,
+                #7433ee,
+                #b13bea
+            );
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .boton-login:hover {
+            filter: brightness(1.15);
+        }
+
+        .opciones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+        .opciones span {
+            color: var(--secundario);
+        }
+
+        .aviso {
+            text-align: center;
+            font-size: 12px;
+            color: var(--secundario);
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+
+        .volver {
+            display: block;
+            margin-top: 28px;
+            text-align: center;
+            color: var(--secundario);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .volver:hover {
+            color: var(--celeste);
+        }
+
+        .error {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #b63855;
+            background: #481728;
+            border-radius: 8px;
+            color: #ffd7df;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .login {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login">
+
+        <div class="logo">
+            NEXUS<span>GAMER</span>
+        </div>
+
+        <div class="icono">🔐</div>
+
+        <h1>Iniciar sesión</h1>
+
+        <p class="subtitulo">
+            Accede al panel administrativo
+        </p>
+
+        {% if error %}
+        <div class="error" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form
+            method="POST"
+            action="{{ url_for('admin_login') }}"
+        >
+
+            <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+            >
+
+            <div class="campo">
+                <label for="correo">
+                    Correo electrónico
+                </label>
+
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="admin@nexusgamer.com"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="password">
+                    Contraseña
+                </label>
+
+                <div class="password-contenedor">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Ingresa tu contraseña"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="ver-password"
+                        id="ver-password"
+                        aria-label="Mostrar contraseña"
+                    >
+                        👁
+                    </button>
+                </div>
+            </div>
+
+            <button
+                type="submit"
+                class="boton-login"
+            >
+                Iniciar sesión
+            </button>
+
+        </form>
+
+        <div class="opciones">
+            <span>Acceso exclusivo</span>
+            <span>🔒 Cuenta administrada</span>
+        </div>
+
+        <p class="aviso">
+            No es posible crear una cuenta públicamente.
+            Los accesos son gestionados por el administrador.
+        </p>
+
+        <a
+            href="{{ url_for('inicio') }}"
+            class="volver"
+        >
+            ← Volver a la tienda
+        </a>
+
+    </main>
+
+    <script>
+        const botonVer = document.getElementById("ver-password");
+        const campoPassword = document.getElementById("password");
+
+        botonVer.addEventListener("click", () => {
+            const visible = campoPassword.type === "text";
+
+            campoPassword.type = visible ? "password" : "text";
+
+            botonVer.setAttribute(
+                "aria-label",
+                visible
+                    ? "Mostrar contraseña"
+                    : "Ocultar contraseña"
+            );
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1021 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard | Nexus Gamer</title>
+<style>
+:root {
+    --bg: #080812;
+    --panel: #111020;
+    --border: #29223f;
+    --purple: #873cf5;
+    --cyan: #00d9f5;
+    --text: #f5f4ff;
+    --muted: #a7a3b9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+    width: 245px;
+    flex-shrink: 0;
+    background: #0d0c19;
+    border-right: 1px solid var(--border);
+    padding: 26px 15px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: auto;
+}
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 38px;
+}
+.logo span { color: var(--cyan); }
+.menu { display: flex; flex-direction: column; gap: 7px; }
+.menu a {
+    display: block;
+    padding: 13px 15px;
+    border-radius: 9px;
+    color: #c6c3d6;
+    text-decoration: none;
+    font-size: 14px;
+}
+.menu a:hover,
+.menu a.activo {
+    background: linear-gradient(90deg, #5021ad, #251448);
+    color: white;
+}
+.salir {
+    width: 100%;
+    margin-top: 32px;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #713047;
+    border-radius: 9px;
+    color: #ff718a;
+    cursor: pointer;
+}
+.contenido { flex: 1; min-width: 0; padding: 30px; }
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+.encabezado h1 { font-size: 27px; margin: 0 0 8px; }
+.subtitulo { color: var(--muted); font-size: 14px; margin: 0; }
+.usuario {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 13px 17px;
+    border-radius: 12px;
+    font-size: 13px;
+}
+.usuario strong { color: var(--cyan); }
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+.tarjeta, .seccion {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+.tarjeta { padding: 22px; min-height: 140px; }
+.icono { font-size: 25px; margin-bottom: 15px; }
+.tarjeta p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 10px;
+}
+.tarjeta h2 { font-size: 25px; margin: 0; }
+.tarjeta:nth-child(1) h2 { color: #3fe6bc; }
+.tarjeta:nth-child(2) h2 { color: #b37aff; }
+.tarjeta:nth-child(3) h2 { color: #ffc166; }
+.tarjeta:nth-child(4) h2 { color: var(--cyan); }
+.seccion {
+    padding: 24px;
+    margin-top: 24px;
+    scroll-margin-top: 20px;
+}
+.seccion h3 { font-size: 18px; margin: 0 0 15px; }
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.btn {
+    border: 1px solid #4e347b;
+    background: #271844;
+    color: white;
+    border-radius: 9px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.btn:hover { filter: brightness(1.2); }
+.btn:disabled { opacity: .5; cursor: wait; }
+.btn.primary {
+    background: linear-gradient(90deg, #702ff0, #b02ddd);
+    border: 0;
+}
+.btn.danger {
+    background: #3b1728;
+    border-color: #73304c;
+    color: #ff93a7;
+}
+.btn.good {
+    background: #103b34;
+    border-color: #246d5d;
+    color: #6df2c5;
+}
+.btn.small { font-size: 12px; padding: 7px 9px; }
+.tabla-wrap { overflow-x: auto; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+th, td {
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 10px;
+    font-size: 13px;
+    vertical-align: middle;
+}
+th { color: #b6b0d1; font-size: 12px; }
+td { color: #e5e3f2; }
+.acciones { display: flex; gap: 7px; flex-wrap: wrap; }
+.pill {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #2a2143;
+    color: #c5a9ff;
+    font-size: 12px;
+}
+.pill.off { background: #3a222c; color: #ff9cac; }
+.pill.on { background: #15382e; color: #7ce6bb; }
+.stock-bajo { color: #ffbd62; font-weight: bold; }
+.stock-cero { color: #ff7d95; font-weight: bold; }
+input, select, textarea {
+    width: 100%;
+    padding: 11px;
+    border-radius: 9px;
+    background: #1a182a;
+    color: white;
+    border: 1px solid #3b3155;
+    font: inherit;
+}
+label {
+    font-size: 13px;
+    color: #c9c4df;
+    display: block;
+    margin-bottom: 7px;
+}
+.campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+.campo.full { grid-column: 1 / -1; }
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background: rgba(0, 0, 0, .75);
+    z-index: 100;
+    padding: 20px;
+}
+.modal.visible { display: grid; }
+.modal-box {
+    width: min(690px, 100%);
+    max-height: 90vh;
+    overflow: auto;
+    background: #121020;
+    border: 1px solid #7041a6;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 15px 65px #0009;
+}
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.modal-top h3 { margin: 0; }
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+.estado-select { min-width: 120px; }
+.resumen {
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+.mensaje { margin: 10px 0; color: #ff96a4; min-height: 18px; }
+.vista-imagen {
+    display: none;
+    max-width: 180px;
+    max-height: 150px;
+    object-fit: contain;
+    margin-top: 12px;
+    border-radius: 10px;
+}
+@media (max-width: 1100px) {
+    .tarjetas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 700px) {
+    .layout { display: block; }
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 18px;
+    }
+    .logo { margin-bottom: 14px; }
+    .menu { flex-direction: row; overflow-x: auto; }
+    .menu a { white-space: nowrap; }
+    .salir { margin-top: 12px; }
+    .contenido { padding: 18px; }
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .tarjetas { grid-template-columns: 1fr; }
+    .campos { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+    <aside class="sidebar">
+        <div class="logo">NEXUS<span>GAMER</span></div>
+
+        <nav class="menu">
+            <a class="activo" href="#dashboard">◈ Dashboard</a>
+            <a href="#pedidos">▤ Pedidos</a>
+            <a href="#productos">▣ Productos</a>
+            <a href="#stock">▥ Stock</a>
+            {% if rol == 'admin' %}
+            <a href="#clientes">♙ Clientes</a>
+            <a href="#ventas">▧ Ventas</a>
+            {% endif %}
+        </nav>
+
+        <form method="POST" action="{{ url_for('admin_logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="salir">⏻ Cerrar sesión</button>
+        </form>
+    </aside>
+
+    <main class="contenido" id="dashboard">
+        <header class="encabezado">
+            <div>
+                <h1>{{ 'Dashboard Administrativo' if rol == 'admin' else 'Dashboard de Empleado' }}</h1>
+                <p class="subtitulo">Resumen general de Nexus Gamer</p>
+            </div>
+            <div class="usuario">
+                👤 {{ nombre }}
+                <div>
+                    <strong>{{ 'Administrador' if rol == 'admin' else 'Empleado' }}</strong>
+                </div>
+            </div>
+        </header>
+
+        <section class="tarjetas">
+            <div class="tarjeta">
+                <div class="icono">💰</div>
+                <p>Ingresos confirmados del mes</p>
+                <h2>S/ {{ '%.2f'|format(ingresos_mes|default(0, true)) }}</h2>
+            </div>
+            <div class="tarjeta">
+                <div class="icono">🛒</div>
+                <p>Pedidos del mes</p>
+                <h2>{{ pedidos_mes|default(0, true) }}</h2>
+            </div>
+            <div class="tarjeta">
+                <div class="icono">📦</div>
+                <p>Productos disponibles</p>
+                <h2>{{ productos_disponibles|default(0, true) }}</h2>
+            </div>
+            <div class="tarjeta">
+                <div class="icono">👥</div>
+                <p>Clientes registrados</p>
+                <h2>{{ clientes_registrados|default(0, true) }}</h2>
+            </div>
+        </section>
+
+        <section class="seccion" id="pedidos">
+            <div class="barra">
+                <h3>📋 Gestión de pedidos</h3>
+                <span class="pill">Últimos {{ pedidos|default([])|length }} pedidos</span>
+            </div>
+
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Fecha</th>
+                            <th>Cliente y contacto</th>
+                            <th>Dirección</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in pedidos|default([]) %}
+                        <tr>
+                            <td>#{{ p.id_venta }}</td>
+                            <td>{{ p.fecha.strftime('%d/%m/%Y %H:%M') if p.fecha else '-' }}</td>
+                            <td>
+                                <strong>{{ p.cliente or '-' }}</strong>
+                                <div>{{ p.telefono or '-' }}</div>
+                                <div>{{ p.correo or '-' }}</div>
+                            </td>
+                            <td>
+                                {{ p.ciudad or '-' }}
+                                <div>{{ p.direccion or '-' }}</div>
+                            </td>
+                            <td>S/ {{ '%.2f'|format(p.total) }}</td>
+                            <td>
+                                {% if rol == 'admin' %}
+                                <select
+                                    class="estado-select"
+                                    data-pedido="{{ p.id_venta }}"
+                                    data-original="{{ p.estado }}"
+                                >
+                                    <option value="Pendiente" {% if p.estado == 'Pendiente' %}selected{% endif %}>Pendiente</option>
+                                    <option value="Procesando" {% if p.estado == 'Procesando' %}selected{% endif %}>Procesando</option>
+                                    <option value="Completada" {% if p.estado == 'Completada' %}selected{% endif %}>Completada</option>
+                                    <option value="Cancelada" {% if p.estado == 'Cancelada' %}selected{% endif %}>Cancelada</option>
+                                </select>
+                                {% else %}
+                                <span class="pill">{{ p.estado }}</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6">Todavía no hay pedidos registrados.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="resumen">
+                Los ingresos del mes cuentan solamente los pedidos completados.
+                Cambiar un pedido a Cancelada no repone automáticamente el stock.
+            </p>
+        </section>
+
+        <section class="seccion" id="productos">
+            <div class="barra">
+                <h3>🎮 Productos e inventario</h3>
+                {% if rol == 'admin' %}
+                <button class="btn primary" type="button" id="nuevo-producto">
+                    + Agregar producto
+                </button>
+                {% endif %}
+            </div>
+
+            <p class="muted">
+                Consulta el catálogo de Nexus Gamer.
+                El administrador puede agregar, editar, ocultar y mostrar productos.
+            </p>
+
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            {% if rol == 'admin' %}
+                            <th>Acciones</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in productos_admin|default([]) %}
+                        <tr>
+                            <td>{{ p.codigo }}</td>
+                            <td>
+                                <strong>{{ p.nombre }}</strong>
+                                <div class="muted">{{ p.marca or '' }}</div>
+                            </td>
+                            <td>{{ p.categoria or '-' }}</td>
+                            <td>S/ {{ '%.2f'|format(p.precio) }}</td>
+                            <td class="{{ 'stock-cero' if p.stock == 0 else ('stock-bajo' if p.stock <= 5 else '') }}">
+                                {{ p.stock }}
+                            </td>
+                            <td>
+                                <span class="pill {{ 'on' if p.activo else 'off' }}">
+                                    {{ 'Visible' if p.activo else 'Oculto' }}
+                                </span>
+                            </td>
+                            {% if rol == 'admin' %}
+                            <td>
+                                <div class="acciones">
+                                    <button
+                                        class="btn small editar"
+                                        type="button"
+                                        data-id="{{ p.id_producto }}"
+                                    >Editar</button>
+
+                                    <button
+                                        class="btn small {{ 'danger' if p.activo else 'good' }} estado-producto"
+                                        type="button"
+                                        data-id="{{ p.id_producto }}"
+                                        data-activo="{{ 1 if p.activo else 0 }}"
+                                    >
+                                        {{ 'Ocultar' if p.activo else 'Mostrar' }}
+                                    </button>
+                                </div>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="{{ 7 if rol == 'admin' else 6 }}">
+                                No hay productos registrados.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion" id="stock">
+            <h3>📦 Control de stock</h3>
+
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Unidades</th>
+                            <th>Situación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in productos_admin|default([]) if p.activo and p.stock <= 5 %}
+                        <tr>
+                            <td>{{ p.nombre }}</td>
+                            <td>{{ p.stock }}</td>
+                            <td>
+                                <span class="pill {{ 'off' if p.stock == 0 else '' }}">
+                                    {{ 'Agotado' if p.stock == 0 else 'Stock bajo' }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3">
+                                No hay productos visibles con stock bajo.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        {% if rol == 'admin' %}
+        <section class="seccion" id="clientes">
+            <h3>👥 Clientes registrados</h3>
+
+            <div class="tabla-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Ciudad</th>
+                            <th>Dirección</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in clientes_admin|default([]) %}
+                        <tr>
+                            <td>{{ c.nombre }}</td>
+                            <td>{{ c.correo or '-' }}</td>
+                            <td>{{ c.telefono or '-' }}</td>
+                            <td>{{ c.ciudad or '-' }}</td>
+                            <td>{{ c.direccion or '-' }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="5">No hay clientes registrados.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion" id="ventas">
+            <h3>📈 Ventas e ingresos</h3>
+            <p class="muted">
+                Ingresos confirmados del mes:
+                <strong>S/ {{ '%.2f'|format(ingresos_mes|default(0, true)) }}</strong>.
+                Los pedidos pendientes y en proceso no se incluyen como ingresos confirmados.
+            </p>
+        </section>
+        {% endif %}
+    </main>
+</div>
+
+{% if rol == 'admin' %}
+<div
+    class="modal"
+    id="modal-producto"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="titulo-modal"
+>
+    <div class="modal-box">
+        <div class="modal-top">
+            <h3 id="titulo-modal">Agregar producto</h3>
+            <button
+                class="btn"
+                type="button"
+                id="cerrar-modal"
+                aria-label="Cerrar"
+            >✕</button>
+        </div>
+
+        <form id="form-producto" enctype="multipart/form-data">
+            <input type="hidden" name="id_producto" id="id_producto">
+
+            <div class="campos">
+                <div class="campo">
+                    <label for="codigo">Código *</label>
+                    <input id="codigo" name="codigo" required maxlength="20">
+                </div>
+
+                <div class="campo">
+                    <label for="nombre">Nombre *</label>
+                    <input id="nombre" name="nombre" required maxlength="150">
+                </div>
+
+                <div class="campo">
+                    <label for="marca">Marca</label>
+                    <input id="marca" name="marca" maxlength="100">
+                </div>
+
+                <div class="campo">
+                    <label for="id_categoria">Categoría *</label>
+                    <select id="id_categoria" name="id_categoria" required>
+                        <option value="">Seleccionar</option>
+                        {% for c in categorias_admin|default([]) %}
+                        <option value="{{ c.id_categoria }}">{{ c.nombre }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="precio">Precio (S/) *</label>
+                    <input
+                        type="number"
+                        id="precio"
+                        name="precio"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="precio_anterior">Precio anterior (S/)</label>
+                    <input
+                        type="number"
+                        id="precio_anterior"
+                        name="precio_anterior"
+                        min="0"
+                        step="0.01"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="stock">Stock *</label>
+                    <input
+                        type="number"
+                        id="stock"
+                        name="stock"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="imagen_archivo">Imagen del producto</label>
+                    <input
+                        type="file"
+                        id="imagen_archivo"
+                        name="imagen_archivo"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+                    <input type="hidden" id="imagen" name="imagen">
+                    <img
+                        id="vista-imagen"
+                        class="vista-imagen"
+                        alt="Vista previa del producto"
+                    >
+                </div>
+
+                <div class="campo full">
+                    <label for="descripcion">Descripción</label>
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="3"
+                    ></textarea>
+                </div>
+            </div>
+
+            <p class="mensaje" id="error-form" role="alert"></p>
+
+            <div class="modal-actions">
+                <button
+                    class="btn"
+                    type="button"
+                    id="cancelar-modal"
+                >Cancelar</button>
+
+                <button
+                    class="btn primary"
+                    type="submit"
+                    id="guardar-producto"
+                >Guardar producto</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="application/json" id="datos-productos">
+{{ productos_admin|default([])|tojson }}
+</script>
+
+<input
+    type="hidden"
+    id="csrf-token"
+    value="{{ csrf_token() }}"
+>
+
+<div
+    id="rutas-admin"
+    data-guardar="{{ url_for('admin_guardar_producto') }}"
+    hidden
+></div>
+
+<script>
+const productos = JSON.parse(
+    document.getElementById("datos-productos").textContent
+);
+
+const csrfToken = document.getElementById("csrf-token").value;
+const rutaGuardar = document.getElementById("rutas-admin").dataset.guardar;
+
+const modal = document.getElementById("modal-producto");
+const form = document.getElementById("form-producto");
+const errorForm = document.getElementById("error-form");
+const imagenArchivo = document.getElementById("imagen_archivo");
+const vistaImagen = document.getElementById("vista-imagen");
+
+let imagenTemporal = null;
+
+function limpiarImagenTemporal() {
+    if (imagenTemporal) {
+        URL.revokeObjectURL(imagenTemporal);
+        imagenTemporal = null;
+    }
+}
+
+function mostrarImagen(src) {
+    if (src) {
+        vistaImagen.src = src;
+        vistaImagen.style.display = "block";
+    } else {
+        vistaImagen.removeAttribute("src");
+        vistaImagen.style.display = "none";
+    }
+}
+
+
+imagenArchivo.addEventListener("change", () => {
+    limpiarImagenTemporal();
+
+    const archivo = imagenArchivo.files[0];
+
+    if (!archivo) {
+        const producto = productos.find(
+            p => String(p.id_producto) ===
+                String(form.elements["id_producto"].value)
+        );
+
+        if (producto && producto.imagen) {
+            const ruta = String(producto.imagen).trim();
+
+            if (/^https?:\/\//i.test(ruta)) {
+                mostrarImagen(ruta);
+            } else {
+                const nombre = ruta
+                    .replace(/^\/?static\/img\//i, "")
+                    .replace(/^img\//i, "");
+
+                mostrarImagen(
+                    "/static/img/" +
+                    nombre.split("/").map(encodeURIComponent).join("/")
+                );
+            }
+        } else {
+            mostrarImagen(null);
+        }
+
+        return;
+    }
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(archivo.type)) {
+        alert("Selecciona una imagen JPG, PNG o WEBP.");
+        imagenArchivo.value = "";
+        mostrarImagen(null);
+        return;
+    }
+
+    if (archivo.size > 5 * 1024 * 1024) {
+        alert("La imagen no debe superar los 5 MB.");
+        imagenArchivo.value = "";
+        mostrarImagen(null);
+        return;
+    }
+
+    imagenTemporal = URL.createObjectURL(archivo);
+    mostrarImagen(imagenTemporal);
+});
+
+
+
+function abrirModal(producto = null) {
+    form.reset();
+    limpiarImagenTemporal();
+    mostrarImagen(null);
+    errorForm.textContent = "";
+
+    document.getElementById("titulo-modal").textContent =
+        producto ? "Editar producto" : "Agregar producto";
+
+    const campos = [
+        "id_producto",
+        "codigo",
+        "nombre",
+        "marca",
+        "id_categoria",
+        "precio",
+        "precio_anterior",
+        "stock",
+        "imagen",
+        "descripcion"
+    ];
+
+    for (const campo of campos) {
+        const elemento = form.elements[campo];
+
+        if (elemento) {
+            elemento.value = producto
+                ? (producto[campo] ?? "")
+                : "";
+        }
+    }
+
+    imagenArchivo.value = "";
+
+    if (producto && producto.imagen) {
+        const ruta = String(producto.imagen).trim();
+
+        if (/^https?:\/\//i.test(ruta)) {
+            mostrarImagen(ruta);
+        } else {
+            const nombre = ruta
+                .replace(/^\/?static\/img\//i, "")
+                .replace(/^img\//i, "");
+
+            const rutaImagen = "/static/img/" +
+                nombre.split("/").map(encodeURIComponent).join("/");
+
+            mostrarImagen(rutaImagen);
+        }
+    }
+
+    modal.classList.add("visible");
+}
+
+
+function cerrarModal() {
+    modal.classList.remove("visible");
+    limpiarImagenTemporal();
+}
+
+document.getElementById("nuevo-producto").addEventListener("click", () => {
+    abrirModal();
+});
+
+document.getElementById("cerrar-modal").addEventListener("click", cerrarModal);
+document.getElementById("cancelar-modal").addEventListener("click", cerrarModal);
+
+modal.addEventListener("click", (evento) => {
+    if (evento.target === modal) {
+        cerrarModal();
+    }
+});
+
+document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") {
+        cerrarModal();
+    }
+});
+
+document.querySelectorAll(".editar").forEach((boton) => {
+    boton.addEventListener("click", () => {
+        const producto = productos.find(
+            p => Number(p.id_producto) === Number(boton.dataset.id)
+        );
+
+        if (producto) {
+            abrirModal(producto);
+        }
+    });
+});
+
+async function procesarRespuesta(respuesta) {
+    const tipo = respuesta.headers.get("content-type") || "";
+
+    if (!tipo.includes("application/json")) {
+        throw new Error(
+            "El servidor no devolvió JSON. Revisa la sesión y las rutas de app.py."
+        );
+    }
+
+    const resultado = await respuesta.json();
+
+    if (!respuesta.ok || !resultado.ok) {
+        throw new Error(
+            resultado.mensaje || "No se pudo realizar la operación."
+        );
+    }
+
+    return resultado;
+}
+
+async function enviar(url, datos) {
+    const respuesta = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-Token": csrfToken
+        },
+        credentials: "same-origin",
+        body: JSON.stringify(datos)
+    });
+
+    return procesarRespuesta(respuesta);
+}
+
+async function enviarProducto(datos) {
+    const respuesta = await fetch(rutaGuardar, {
+        method: "POST",
+        headers: {
+            "X-CSRF-Token": csrfToken
+        },
+        credentials: "same-origin",
+        body: datos
+    });
+
+    return procesarRespuesta(respuesta);
+}
+
+form.addEventListener("submit", async (evento) => {
+    evento.preventDefault();
+
+    const boton = document.getElementById("guardar-producto");
+    boton.disabled = true;
+    errorForm.textContent = "";
+
+    const datos = new FormData(form);
+
+    try {
+        await enviarProducto(datos);
+        window.location.reload();
+    } catch (error) {
+        errorForm.textContent = error.message;
+        boton.disabled = false;
+    }
+});
+
+document.querySelectorAll(".estado-producto").forEach((boton) => {
+    boton.addEventListener("click", async () => {
+        const activo = boton.dataset.activo === "1";
+
+        const confirmar = confirm(
+            activo
+                ? "¿Deseas ocultar este producto de la tienda? Podrás mostrarlo nuevamente."
+                : "¿Deseas mostrar nuevamente este producto en la tienda?"
+        );
+
+        if (!confirmar) {
+            return;
+        }
+
+        boton.disabled = true;
+
+        try {
+            await enviar(
+                "/admin/productos/" +
+                encodeURIComponent(boton.dataset.id) +
+                "/estado",
+                { activo: !activo }
+            );
+
+            window.location.reload();
+        } catch (error) {
+            alert(error.message);
+            boton.disabled = false;
+        }
+    });
+});
+
+document.querySelectorAll(".estado-select").forEach((select) => {
+    select.addEventListener("change", async () => {
+        const anterior = select.dataset.original;
+
+        const confirmar = confirm(
+            "¿Cambiar el estado de este pedido a " +
+            select.value +
+            "?"
+        );
+
+        if (!confirmar) {
+            select.value = anterior;
+            return;
+        }
+
+        select.disabled = true;
+
+        try {
+            await enviar(
+                "/admin/pedidos/" +
+                encodeURIComponent(select.dataset.pedido) +
+                "/estado",
+                { estado: select.value }
+            );
+
+            window.location.reload();
+        } catch (error) {
+            alert(error.message);
+            select.value = anterior;
+            select.disabled = false;
+        }
+    });
+});
+</script>
+{% endif %}
+
+</body>
+</html>
